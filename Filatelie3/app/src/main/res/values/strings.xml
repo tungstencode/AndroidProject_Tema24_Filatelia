@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Filatelie</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="add_item">Add Item</string>
+    <string name="settings">Settings</string>
+    <string name="help">Help</string>
+</resources>
