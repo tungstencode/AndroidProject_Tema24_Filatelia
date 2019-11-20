@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.add_item);
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+
 
     }
 
@@ -26,24 +27,24 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             Fragment selectedFragment = null;
-            switch (menuItem.getItemId()){
+            switch (menuItem.getItemId()) {
                 case R.id.add_item:
-                    selectedFragment=new HomeFragment();
+                    selectedFragment = new HomeFragment();
                     break;
                 case R.id.search:
-                    selectedFragment=new SearchFragment();
+                    selectedFragment = new SearchFragment();
                     break;
                 case R.id.profile:
-                    selectedFragment=new ProfileFragment();
+                    selectedFragment = new ProfileFragment();
                     break;
                 case R.id.settings:
-                    selectedFragment=new SettingsFragment();
+                    selectedFragment = new SettingsFragment();
                     break;
                 case R.id.help:
-                    selectedFragment=new HelpFragment();
+                    selectedFragment = new HelpFragment();
                     break;
             }
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
             return true;
         }
     };

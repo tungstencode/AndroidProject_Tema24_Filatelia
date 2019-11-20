@@ -1062,6 +1062,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_add_circle_outline_black_24dp
+drawable ic_close_white_24dp
 drawable ic_help_outline_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -1069,6 +1070,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_person_outline_black_24dp
+drawable ic_photo_library_black_24dp
 drawable ic_search_black_24dp
 drawable ic_settings_black_24dp
 drawable mtrl_snackbar_background
@@ -1211,6 +1213,7 @@ id icon
 id icon_group
 id ifRoom
 id image
+id img
 id info
 id invisible
 id italic
@@ -1251,6 +1254,7 @@ id profile
 id progress_circular
 id progress_horizontal
 id radio
+id recycler_view_gallery
 id right
 id right_icon
 id right_side
@@ -1392,7 +1396,9 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_add_item
 layout activity_main
+layout collection_item_layout
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1456,6 +1462,7 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string add_item
+string add_item_app_bar_title
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
