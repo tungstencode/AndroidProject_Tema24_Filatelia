@@ -3,6 +3,7 @@ package com.partenie.alex.filatelie;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -25,6 +26,7 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
 
     private final String image_titles[] = {
+            "-1",
             "Img1",
             "Img2",
             "Img3",
@@ -54,6 +56,8 @@ public class HomeFragment extends Fragment {
         ArrayList<CollectionItem> createLists = prepareData();
         CollectionItemAdapter adapter = new CollectionItemAdapter(getContext(), createLists);
         recyclerView.setAdapter(adapter);
+
+
 
 //        button=view.findViewById(R.id.add_itembut);
 //        button.setOnClickListener(new View.OnClickListener() {
