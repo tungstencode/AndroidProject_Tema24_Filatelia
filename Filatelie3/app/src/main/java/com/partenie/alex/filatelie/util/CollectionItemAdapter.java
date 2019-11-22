@@ -4,6 +4,8 @@ package com.partenie.alex.filatelie.util;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +53,8 @@ public class CollectionItemAdapter extends  RecyclerView.Adapter<CollectionItemA
         }else{
             holder.title.setText(galleryList.get(position).getName());
             holder.img.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            holder.img.setImageResource(R.drawable.ic_settings_black_24dp);  //(galleryList.get(position).getImgLocation())
+            Bitmap bitmap= BitmapFactory.decodeFile(galleryList.get(position).getImgLocation());
+            holder.img.setImageBitmap(bitmap);
             holder.img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

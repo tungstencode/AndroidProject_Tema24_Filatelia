@@ -1217,7 +1217,13 @@ id img
 id info
 id invisible
 id italic
+id item_description
+id item_location
+id item_manufatured_date
+id item_name
+id item_price
 id item_touch_helper_previous_elevation
+id item_type
 id labeled
 id largeLabel
 id left
@@ -1466,6 +1472,7 @@ string add_item_app_bar_title
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
+string camera_storage_permision
 string character_counter_content_description
 string character_counter_pattern
 string fab_transformation_scrim_behavior
@@ -1481,10 +1488,13 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string profile
+string rationale_ask
+string rationale_ask_again
 string search
 string search_menu_title
 string settings
 string status_bar_notification_info_overflow
+string title_settings_dialog
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -1684,6 +1694,8 @@ style Base_Widget_MaterialComponents_TextInputLayout
 style CardView
 style CardView_Dark
 style CardView_Light
+style EasyPermissions
+style EasyPermissions_Transparent
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_MaterialComponents

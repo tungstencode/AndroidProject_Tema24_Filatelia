@@ -2,6 +2,7 @@ package com.partenie.alex.filatelie;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,28 +20,33 @@ import com.partenie.alex.filatelie.R;
 import com.partenie.alex.filatelie.util.CollectionItem;
 import com.partenie.alex.filatelie.util.CollectionItemAdapter;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class HomeFragment extends Fragment {
     Button button;
     RecyclerView recyclerView;
+    ArrayList<String> paths = new ArrayList<String>();
+    File[] listFile;
 
-    private final String image_titles[] = {
-            "-1",
-            "Img1",
-            "Img2",
-            "Img3",
-            "Img4",
-            "Img5",
-            "Img6",
-            "Img7",
-            "Img8",
-            "Img9",
-            "Img10",
-            "Img11",
-            "Img12",
-            "Img13",
-    };
+//    private final String image_titles[] = {
+//            "-1",
+//            "Img1",
+//            "Img2",
+//            "Img3",
+//            "Img4",
+//            "Img5",
+//            "Img6",
+//            "Img7",
+//            "Img8",
+//            "Img9",
+//            "Img10",
+//            "Img11",
+//            "Img12",
+//            "Img13",
+//    };
 
 
     @Nullable
@@ -49,38 +55,64 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        recyclerView=view.findViewById(R.id.recycler_view_gallery);
+        recyclerView = view.findViewById(R.id.recycler_view_gallery);
 
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(view.getContext(),2);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(view.getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
-        ArrayList<CollectionItem> createLists = prepareData();
+        ArrayList<CollectionItem> createLists = prepareData(view);
         CollectionItemAdapter adapter = new CollectionItemAdapter(getContext(), createLists);
         recyclerView.setAdapter(adapter);
 
-
-
-//        button=view.findViewById(R.id.add_itembut);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getActivity(),"lol",Toast.LENGTH_LONG).show();
-//                Intent intent=new Intent(getContext(),AddItemActivity.class);
-//                startActivityForResult(intent,200);
-//            }
-//        });
         return view;
     }
 
 
-    private ArrayList<CollectionItem> prepareData(){
+    private ArrayList<CollectionItem> prepareData(View view) {
 
-        ArrayList<CollectionItem> theimage = new ArrayList<>();
-        for(int i = 0; i< image_titles.length; i++){
-            CollectionItem collectionItem = new CollectionItem();
-            collectionItem.setName(image_titles[i]);
+        getFromSdcard(view);
+        ArrayList<CollectionItem> theimages = new ArrayList<>();
+
+        CollectionItem collectionItem = new CollectionItem();
+        collectionItem.setName("-1");
 //            collectionItem.setImgLocation(image_ids[i]);
-            theimage.add(collectionItem);
+        theimages.add(collectionItem);
+
+
+        for (int i = 0; i < paths.size(); i++) {
+            collectionItem = new CollectionItem();
+
+            collectionItem.setName(paths.get(i));
+            collectionItem.setImgLocation(paths.get(i));
+            theimages.add(collectionItem);
         }
-        return theimage;
+        return theimages;
+    }
+
+
+    public void getFromSdcard(View view) {
+
+        String myfolder = Environment.getExternalStorageDirectory() + "/CollectionPhotos";
+        File f = new File(myfolder);
+        if (!f.exists()) {
+            if (!f.mkdir()) {
+                Toast.makeText(view.getContext(), myfolder + " can't be created.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(view.getContext(), myfolder + " can be created.", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(view.getContext(), myfolder + " already exits.", Toast.LENGTH_SHORT).show();
+            try{
+                listFile = f.listFiles();
+
+                if(listFile!=null){
+                    for (int i = 0; i < listFile.length; i++) {
+                        Toast.makeText(view.getContext(),listFile[i].getAbsolutePath(),Toast.LENGTH_SHORT);
+                        paths.add(listFile[i].getAbsolutePath());
+                    }
+                }else{
+                    Toast.makeText(view.getContext(),"list file is null",Toast.LENGTH_SHORT);
+                }
+            }catch (Exception e){}
+        }
     }
 }
