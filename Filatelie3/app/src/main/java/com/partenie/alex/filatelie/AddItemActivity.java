@@ -44,13 +44,18 @@ public class AddItemActivity extends AppCompatActivity {
             this.getSupportActionBar().setTitle("Edit " + intent.getStringExtra("key"));
         }
         type_spinner = findViewById(R.id.item_type);
+
         new JsonTask().execute("https://api.myjson.com/bins/iueei");
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
             case android.R.id.home:
+                finish();
+            case R.id.done_action:
+                Toast.makeText(this, "a mers sper", Toast.LENGTH_SHORT).show();
                 finish();
                 return true;
         }
@@ -58,6 +63,7 @@ public class AddItemActivity extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.done_tick_menu, menu);
         return true;
     }
 
