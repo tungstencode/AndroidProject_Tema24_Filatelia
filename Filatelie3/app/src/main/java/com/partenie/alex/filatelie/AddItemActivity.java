@@ -36,6 +36,10 @@ public class AddItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
+        preload();
+    }
+
+    private void preload(){
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
         this.getSupportActionBar().setTitle(R.string.add_item_app_bar_title);
@@ -54,8 +58,9 @@ public class AddItemActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
+                return true;
             case R.id.done_action:
-                Toast.makeText(this, "a mers sper", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, item.getItemId()+"", Toast.LENGTH_SHORT).show();
                 finish();
                 return true;
         }

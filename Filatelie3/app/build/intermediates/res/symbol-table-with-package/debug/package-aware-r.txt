@@ -1047,6 +1047,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable border
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1061,6 +1062,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_add_black_24dp
 drawable ic_add_circle_outline_black_24dp
 drawable ic_close_white_24dp
 drawable ic_done_white_24dp
@@ -1305,6 +1307,7 @@ id spread_inside
 id src_atop
 id src_in
 id src_over
+id stamp_photo
 id standard
 id start
 id stretch
