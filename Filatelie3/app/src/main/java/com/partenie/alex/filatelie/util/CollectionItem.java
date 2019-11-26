@@ -14,7 +14,7 @@ public class CollectionItem implements Parcelable {
     public String imgLocation;
     public String name;
     public String description;
-    public Float pret;
+    public Float price;
     public Date manufacturedDate;
     public Date acquiredDate;
     public String historicLocation;
@@ -23,12 +23,12 @@ public class CollectionItem implements Parcelable {
     public CollectionItem() {
     }
 
-    public CollectionItem(Integer id, String imgLocation, String name, String description, Float pret, Date manufacturedDate, String historicLocation, String type) {
+    public CollectionItem(Integer id, String imgLocation, String name, String description, Float price, Date manufacturedDate, String historicLocation, String type) {
         this.id = id;
         this.imgLocation = imgLocation;
         this.name = name;
         this.description = description;
-        this.pret = pret;
+        this.price = price;
         this.manufacturedDate = manufacturedDate;
         this.acquiredDate = Calendar.getInstance().getTime();
         this.historicLocation = historicLocation;
@@ -79,12 +79,12 @@ public class CollectionItem implements Parcelable {
         this.description = description;
     }
 
-    public float getPret() {
-        return pret;
+    public float getPrice() {
+        return price;
     }
 
-    public void setPret(Float pret) {
-        this.pret = pret;
+    public void setPrice(Float price) {
+        this.price = price;
     }
 
     public Date getManufacturedDate() {
@@ -122,10 +122,12 @@ public class CollectionItem implements Parcelable {
     @Override
     public String toString() {
         return "Obiectul " + name + '\'' +
-                ", cu pretul" + pret +
+                ", cu pretul" + price +
                 ", din '" + historicLocation + '\'' +
                 ", de tip " + type;
     }
+
+
 
     @Override
     public int describeContents() {
@@ -138,7 +140,7 @@ public class CollectionItem implements Parcelable {
         parcel.writeString(imgLocation);
         parcel.writeString(name);
         parcel.writeString(description);
-        parcel.writeFloat(pret);
+        parcel.writeFloat(price);
         parcel.writeString(new SimpleDateFormat("dd-MM-yyyy", Locale.US).format(manufacturedDate));
         parcel.writeString(new SimpleDateFormat("dd-MM-yyyy", Locale.US).format(acquiredDate));
         parcel.writeString(historicLocation);
@@ -156,9 +158,9 @@ public class CollectionItem implements Parcelable {
         name = in.readString();
         description = in.readString();
         if (in.readByte() == 0) {
-            pret = null;
+            price = null;
         } else {
-            pret = in.readFloat();
+            price = in.readFloat();
         }
         try {
             this.manufacturedDate = new SimpleDateFormat(

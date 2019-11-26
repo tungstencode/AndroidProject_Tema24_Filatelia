@@ -5,10 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.Manifest;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.partenie.alex.filatelie.util.CollectionItem;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
@@ -16,6 +24,8 @@ import pub.devrel.easypermissions.EasyPermissions;
 public class MainActivity extends AppCompatActivity {
 
     private static final int RC_CAMERA_AND_STORAGE = 100;
+    public static boolean INTERNET;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +37,27 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         requirePerm();
 
+//        Thread thread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                INTERNET = internetIsConnected();
+//            }
+//        });
+//        thread.start();
+        INTERNET = internetIsConnected(getApplicationContext());
+
+        Toast.makeText(getApplicationContext(),INTERNET+"",Toast.LENGTH_SHORT);
+
+
+    }
+
+    public boolean internetIsConnected(Context context) {
+        ConnectivityManager cm =
+                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
+        return isConnected;
     }
 
     @Override
@@ -37,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     @AfterPermissionGranted(RC_CAMERA_AND_STORAGE)
     private void requirePerm() {
-        String[] perms = {Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        String[] perms = {Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         if (EasyPermissions.hasPermissions(this, perms)) {
             // Already have permission, do the thing
             // ...

@@ -24,14 +24,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.partenie.alex.filatelie.util.CollectionItem;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -41,16 +44,25 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+import java.util.Random;
 
 public class AddItemActivity extends AppCompatActivity {
     private static final String JPEG_FILE_PREFIX = "pre_";
     private static final String JPEG_FILE_SUFFIX = ".jpg";
-    Gson gson = new Gson();
-    String[] types_fromjson;
-    ProgressDialog pd;
+    private static final String DATE_FORMAT = "dd-MM-yyyy";
+    EditText item_name;
+    EditText item_description;
+    EditText item_price;
+    EditText item_manufatured_date;
+    EditText item_location;
     Spinner type_spinner;
+    Gson gson = new Gson();
+    String[] types_from_json;
+    ProgressDialog pd;
     private Uri file;
     View photoLayout;
     ImageView preview;
@@ -76,10 +88,22 @@ public class AddItemActivity extends AppCompatActivity {
         }
 
         type_spinner = findViewById(R.id.item_type);
+        item_name = findViewById(R.id.item_name);
+        item_description = findViewById(R.id.item_description);
+        item_location = findViewById(R.id.item_location);
+        item_price = findViewById(R.id.item_price);
+        item_manufatured_date = findViewById(R.id.item_manufatured_date);
         photoLayout = findViewById(R.id.stamp_photo);
         preview = findViewById(R.id.img);
-        new JsonTask().execute("https://api.myjson.com/bins/iueei");
-
+        if (MainActivity.INTERNET) {
+            new JsonTask().execute("https://api.myjson.com/bins/iueei");
+        } else {
+            ArrayAdapter<CharSequence> adapter =
+                    ArrayAdapter.createFromResource(getApplicationContext(), R.array.types,
+                            android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            type_spinner.setAdapter(adapter);
+        }
         photoLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,8 +114,31 @@ public class AddItemActivity extends AppCompatActivity {
 
     }
 
+    private CollectionItem createFromView() {
+        Integer id = new Random().nextInt();
+        String imgLocation;
+        if(image!=null){
+            imgLocation = image.getAbsolutePath();
+        }else {
+            imgLocation="";
+        }
+        String name = item_name.getText().toString();
+        String description = item_description.getText().toString();
+        Float price = Float.parseFloat(item_price.getText().toString());
+        Date manufacturedDate=null;
+        try {
+            manufacturedDate = new SimpleDateFormat(DATE_FORMAT, Locale.US)
+                    .parse(item_manufatured_date.getText().toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String historicLocation=item_location.getText().toString();
+        String type=type_spinner.getSelectedItem().toString();
+        return new CollectionItem(id,imgLocation,name,description,price,manufacturedDate,historicLocation,type);
+    }
 
-    public void takePicture(View view)  {
+
+    public void takePicture(View view) {
 
         String timeStamp =
                 new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -120,20 +167,14 @@ public class AddItemActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState, outPersistentState);
     }
 
-        @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode,resultCode,data);
-        if (requestCode == 100 && resultCode == Activity.RESULT_OK)
-        {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
 //            Bitmap photo = (Bitmap) data.getExtras().get("data");
-
             Toast.makeText(this, image.getAbsolutePath(), Toast.LENGTH_LONG).show();
-
-            Bitmap photo=BitmapFactory.decodeFile(image.getAbsolutePath());
-
+            Bitmap photo = BitmapFactory.decodeFile(image.getAbsolutePath());
             preview.setImageBitmap(photo);
-
         }
     }
 
@@ -146,7 +187,9 @@ public class AddItemActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.done_action:
-                Toast.makeText(this, item.getItemId() + "", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, item.getItemId() + "", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, createFromView().toString(), Toast.LENGTH_SHORT).show();
+                HomeFragment.collectionItems.add(createFromView());
                 finish();
                 return true;
         }
@@ -222,11 +265,13 @@ public class AddItemActivity extends AppCompatActivity {
             if (pd.isShowing()) {
                 pd.dismiss();
             }
-            types_fromjson = gson.fromJson(result, String[].class);
+
+            types_from_json = gson.fromJson(result, String[].class);
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(AddItemActivity.this,
-                    android.R.layout.simple_spinner_item, types_fromjson);
+                    android.R.layout.simple_spinner_item, types_from_json);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             type_spinner.setAdapter(adapter);
+
         }
     }
 }

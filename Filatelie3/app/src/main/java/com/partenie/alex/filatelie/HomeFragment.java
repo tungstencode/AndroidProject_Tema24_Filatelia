@@ -26,27 +26,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class HomeFragment extends Fragment {
-    Button button;
     RecyclerView recyclerView;
     ArrayList<String> paths = new ArrayList<String>();
     File[] listFile;
+    public static ArrayList<CollectionItem> collectionItems=new ArrayList<>();
 
-//    private final String image_titles[] = {
-//            "-1",
-//            "Img1",
-//            "Img2",
-//            "Img3",
-//            "Img4",
-//            "Img5",
-//            "Img6",
-//            "Img7",
-//            "Img8",
-//            "Img9",
-//            "Img10",
-//            "Img11",
-//            "Img12",
-//            "Img13",
-//    };
 
 
     @Nullable
@@ -69,7 +53,7 @@ public class HomeFragment extends Fragment {
 
     private ArrayList<CollectionItem> prepareData(View view) {
 
-        getFromSdcard(view);
+//        getFromSdcard(view);
         ArrayList<CollectionItem> theimages = new ArrayList<>();
 
         CollectionItem collectionItem = new CollectionItem();
@@ -78,12 +62,12 @@ public class HomeFragment extends Fragment {
         theimages.add(collectionItem);
 
 
-        for (int i = 0; i < paths.size(); i++) {
-            collectionItem = new CollectionItem();
-
-            collectionItem.setName(paths.get(i));
-            collectionItem.setImgLocation(paths.get(i));
-            theimages.add(collectionItem);
+        for (int i = 0; i < collectionItems.size(); i++) {
+//            collectionItem = new CollectionItem();
+//
+//            collectionItem.setName(paths.get(i));
+//            collectionItem.setImgLocation(paths.get(i));
+            theimages.add(collectionItems.get(i));
         }
         return theimages;
     }
