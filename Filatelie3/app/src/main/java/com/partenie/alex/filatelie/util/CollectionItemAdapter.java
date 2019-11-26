@@ -14,19 +14,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.partenie.alex.filatelie.AddItemActivity;
 import com.partenie.alex.filatelie.HomeFragment;
+import com.partenie.alex.filatelie.MainActivity;
 import com.partenie.alex.filatelie.R;
 
 import java.util.ArrayList;
 
 public class CollectionItemAdapter extends  RecyclerView.Adapter<CollectionItemAdapter.ViewHolder> {
     private ArrayList<CollectionItem> galleryList;
-    private Context context;
+    private HomeFragment context;
 
-    public CollectionItemAdapter(Context context, ArrayList<CollectionItem> galleryList) {
+    public CollectionItemAdapter(HomeFragment context, ArrayList<CollectionItem> galleryList) {
         this.galleryList = galleryList;
         this.context = context;
     }
@@ -38,6 +41,8 @@ public class CollectionItemAdapter extends  RecyclerView.Adapter<CollectionItemA
         return new ViewHolder(view);
     }
 
+
+
     @Override
     public void onBindViewHolder(@NonNull final CollectionItemAdapter.ViewHolder holder, int position) {
         if(galleryList.get(position).getName()=="-1"){
@@ -47,8 +52,10 @@ public class CollectionItemAdapter extends  RecyclerView.Adapter<CollectionItemA
             holder.img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent=new Intent(view.getContext(),AddItemActivity.class);
-                    view.getContext().startActivity(intent);
+                    Intent intent=new Intent(context.getContext(),AddItemActivity.class);
+//                    view.getContext().startActivity(intent);
+                    context.startActivityForResult(intent,303);
+
                 }
             });
         }else{
@@ -65,9 +72,6 @@ public class CollectionItemAdapter extends  RecyclerView.Adapter<CollectionItemA
                 }
             });
         }
-
-
-
     }
 
     @Override

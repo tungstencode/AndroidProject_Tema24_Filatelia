@@ -25,12 +25,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static android.app.Activity.RESULT_OK;
+
 public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     ArrayList<String> paths = new ArrayList<String>();
     File[] listFile;
-    public static ArrayList<CollectionItem> collectionItems=new ArrayList<>();
-
+    public static ArrayList<CollectionItem> collectionItems = new ArrayList<>();
 
 
     @Nullable
@@ -44,12 +45,30 @@ public class HomeFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(view.getContext(), 2);
         recyclerView.setLayoutManager(layoutManager);
         ArrayList<CollectionItem> createLists = prepareData(view);
-        CollectionItemAdapter adapter = new CollectionItemAdapter(getContext(), createLists);
+        CollectionItemAdapter adapter = new CollectionItemAdapter(this, createLists);
+
         recyclerView.setAdapter(adapter);
+        Toast.makeText(getActivity(), "am intrat in oncreate", Toast.LENGTH_SHORT).show();
 
         return view;
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Toast.makeText(getActivity(), "am intrat in result", Toast.LENGTH_SHORT).show();
+        if (requestCode == 303
+                && resultCode == RESULT_OK
+                && data != null) {
+            CollectionItem collectionItem = data.getParcelableExtra("item");
+            if (collectionItem != null) {
+                Toast.makeText(getActivity(),
+                        collectionItem.toString(),
+                        Toast.LENGTH_LONG).show();
+                collectionItems.add(collectionItem);
+            }
+        }
+    }
 
     private ArrayList<CollectionItem> prepareData(View view) {
 
@@ -73,30 +92,30 @@ public class HomeFragment extends Fragment {
     }
 
 
-    public void getFromSdcard(View view) {
-
-        String myfolder = Environment.getExternalStorageDirectory() + "/CollectionPhotos";
-        File f = new File(myfolder);
-        if (!f.exists()) {
-            if (!f.mkdir()) {
-                Toast.makeText(view.getContext(), myfolder + " can't be created.", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(view.getContext(), myfolder + " can be created.", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            Toast.makeText(view.getContext(), myfolder + " already exits.", Toast.LENGTH_SHORT).show();
-            try{
-                listFile = f.listFiles();
-
-                if(listFile!=null){
-                    for (int i = 0; i < listFile.length; i++) {
-                        Toast.makeText(view.getContext(),listFile[i].getAbsolutePath(),Toast.LENGTH_SHORT);
-                        paths.add(listFile[i].getAbsolutePath());
-                    }
-                }else{
-                    Toast.makeText(view.getContext(),"list file is null",Toast.LENGTH_SHORT);
-                }
-            }catch (Exception e){}
-        }
-    }
+//    public void getFromSdcard(View view) {
+//
+//        String myfolder = Environment.getExternalStorageDirectory() + "/CollectionPhotos";
+//        File f = new File(myfolder);
+//        if (!f.exists()) {
+//            if (!f.mkdir()) {
+//                Toast.makeText(view.getContext(), myfolder + " can't be created.", Toast.LENGTH_SHORT).show();
+//            } else {
+//                Toast.makeText(view.getContext(), myfolder + " can be created.", Toast.LENGTH_SHORT).show();
+//            }
+//        } else {
+//            Toast.makeText(view.getContext(), myfolder + " already exits.", Toast.LENGTH_SHORT).show();
+//            try{
+//                listFile = f.listFiles();
+//
+//                if(listFile!=null){
+//                    for (int i = 0; i < listFile.length; i++) {
+//                        Toast.makeText(view.getContext(),listFile[i].getAbsolutePath(),Toast.LENGTH_SHORT);
+//                        paths.add(listFile[i].getAbsolutePath());
+//                    }
+//                }else{
+//                    Toast.makeText(view.getContext(),"list file is null",Toast.LENGTH_SHORT);
+//                }
+//            }catch (Exception e){}
+//        }
+//    }
 }

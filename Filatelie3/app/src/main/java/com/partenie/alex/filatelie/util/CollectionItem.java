@@ -128,7 +128,6 @@ public class CollectionItem implements Parcelable {
     }
 
 
-
     @Override
     public int describeContents() {
         return 0;
@@ -148,20 +147,11 @@ public class CollectionItem implements Parcelable {
     }
 
     private CollectionItem(Parcel in) {
-
-        if (in.readByte() == 0) {
-            id = null;
-        } else {
-            id = in.readInt();
-        }
+        id = in.readInt();
         imgLocation = in.readString();
         name = in.readString();
         description = in.readString();
-        if (in.readByte() == 0) {
-            price = null;
-        } else {
-            price = in.readFloat();
-        }
+        price = in.readFloat();
         try {
             this.manufacturedDate = new SimpleDateFormat(
                     "dd-MM-yyyy",

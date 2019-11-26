@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
@@ -54,6 +55,7 @@ public class AddItemActivity extends AppCompatActivity {
     private static final String JPEG_FILE_PREFIX = "pre_";
     private static final String JPEG_FILE_SUFFIX = ".jpg";
     private static final String DATE_FORMAT = "dd-MM-yyyy";
+    Intent intent;
     EditText item_name;
     EditText item_description;
     EditText item_price;
@@ -63,11 +65,11 @@ public class AddItemActivity extends AppCompatActivity {
     Gson gson = new Gson();
     String[] types_from_json;
     ProgressDialog pd;
-    private Uri file;
     View photoLayout;
     ImageView preview;
     File image_directory;
     File image = null;
+    CollectionItem collectionItem=null;
     String myfolder = Environment.getExternalStorageDirectory() + "/CollectionPhotos";
 
 
@@ -75,6 +77,7 @@ public class AddItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
+        intent=getIntent();
         preload();
     }
 
@@ -82,7 +85,6 @@ public class AddItemActivity extends AppCompatActivity {
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
         this.getSupportActionBar().setTitle(R.string.add_item_app_bar_title);
-        Intent intent = getIntent();
         if (intent.getStringExtra("key") != null) {
             this.getSupportActionBar().setTitle("Edit " + intent.getStringExtra("key"));
         }
@@ -189,7 +191,10 @@ public class AddItemActivity extends AppCompatActivity {
             case R.id.done_action:
 //                Toast.makeText(this, item.getItemId() + "", Toast.LENGTH_SHORT).show();
 //                Toast.makeText(this, createFromView().toString(), Toast.LENGTH_SHORT).show();
-                HomeFragment.collectionItems.add(createFromView());
+                collectionItem=createFromView();
+                intent.putExtra("item",collectionItem);
+                setResult(RESULT_OK, intent);
+//                HomeFragment.collectionItems.add(createFromView());
                 finish();
                 return true;
         }
