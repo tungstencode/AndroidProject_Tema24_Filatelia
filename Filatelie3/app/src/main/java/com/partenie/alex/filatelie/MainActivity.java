@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int RC_CAMERA_AND_STORAGE = 100;
     public static boolean INTERNET;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,19 +35,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         requirePerm();
-
-//        Thread thread = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                INTERNET = internetIsConnected();
-//            }
-//        });
-//        thread.start();
         INTERNET = internetIsConnected(getApplicationContext());
-
-        Toast.makeText(getApplicationContext(),INTERNET+"",Toast.LENGTH_SHORT);
-
-
     }
 
     public boolean internetIsConnected(Context context) {
@@ -70,10 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private void requirePerm() {
         String[] perms = {Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         if (EasyPermissions.hasPermissions(this, perms)) {
-            // Already have permission, do the thing
-            // ...
         } else {
-            // Do not have permissions, request them now
             EasyPermissions.requestPermissions(this, getString(R.string.camera_storage_permision),
                     RC_CAMERA_AND_STORAGE, perms);
         }

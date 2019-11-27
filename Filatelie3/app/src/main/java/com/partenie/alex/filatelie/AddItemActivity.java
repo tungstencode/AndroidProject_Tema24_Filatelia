@@ -1,21 +1,17 @@
 package com.partenie.alex.filatelie;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Parcelable;
 import android.os.PersistableBundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
@@ -24,7 +20,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -35,13 +30,9 @@ import com.partenie.alex.filatelie.util.CollectionItem;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -56,28 +47,28 @@ public class AddItemActivity extends AppCompatActivity {
     private static final String JPEG_FILE_SUFFIX = ".jpg";
     private static final String DATE_FORMAT = "dd-MM-yyyy";
     Intent intent;
-    EditText item_name;
-    EditText item_description;
-    EditText item_price;
-    EditText item_manufatured_date;
-    EditText item_location;
-    Spinner type_spinner;
+    EditText itemName;
+    EditText itemDescription;
+    EditText itemPrice;
+    EditText itemManufaturedDate;
+    EditText itemLocation;
+    Spinner typeSpinner;
     Gson gson = new Gson();
     String[] types_from_json;
     ProgressDialog pd;
     View photoLayout;
     ImageView preview;
-    File image_directory;
+    File imageDirectory;
     File image = null;
-    CollectionItem collectionItem=null;
-    String myfolder = Environment.getExternalStorageDirectory() + "/CollectionPhotos";
+    CollectionItem collectionItem = null;
+    String photoFolder = Environment.getExternalStorageDirectory() + "/CollectionPhotos";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
-        intent=getIntent();
+        intent = getIntent();
         preload();
     }
 
@@ -89,12 +80,12 @@ public class AddItemActivity extends AppCompatActivity {
             this.getSupportActionBar().setTitle("Edit " + intent.getStringExtra("key"));
         }
 
-        type_spinner = findViewById(R.id.item_type);
-        item_name = findViewById(R.id.item_name);
-        item_description = findViewById(R.id.item_description);
-        item_location = findViewById(R.id.item_location);
-        item_price = findViewById(R.id.item_price);
-        item_manufatured_date = findViewById(R.id.item_manufatured_date);
+        typeSpinner = findViewById(R.id.item_type);
+        itemName = findViewById(R.id.item_name);
+        itemDescription = findViewById(R.id.item_description);
+        itemLocation = findViewById(R.id.item_location);
+        itemPrice = findViewById(R.id.item_price);
+        itemManufaturedDate = findViewById(R.id.item_manufatured_date);
         photoLayout = findViewById(R.id.stamp_photo);
         preview = findViewById(R.id.img);
         if (MainActivity.INTERNET) {
@@ -104,7 +95,7 @@ public class AddItemActivity extends AppCompatActivity {
                     ArrayAdapter.createFromResource(getApplicationContext(), R.array.types,
                             android.R.layout.simple_spinner_item);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            type_spinner.setAdapter(adapter);
+            typeSpinner.setAdapter(adapter);
         }
         photoLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,31 +103,74 @@ public class AddItemActivity extends AppCompatActivity {
                 takePicture(view);
             }
         });
-        image_directory = new File(myfolder);
+        imageDirectory = new File(photoFolder);
 
     }
 
     private CollectionItem createFromView() {
-        Integer id = new Random().nextInt();
-        String imgLocation;
-        if(image!=null){
-            imgLocation = image.getAbsolutePath();
-        }else {
-            imgLocation="";
+        if (validate()) {
+            Integer id = new Random().nextInt();
+            String imgLocation;
+            if (image != null) {
+                imgLocation = image.getAbsolutePath();
+            } else {
+                imgLocation = "";
+            }
+            String name = itemName.getText().toString();
+            String description = itemDescription.getText().toString();
+            Float price = Float.parseFloat(itemPrice.getText().toString());
+            Date manufacturedDate = null;
+            try {
+                manufacturedDate = new SimpleDateFormat(DATE_FORMAT, Locale.US)
+                        .parse(itemManufaturedDate.getText().toString());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            String historicLocation = itemLocation.getText().toString();
+            String type = typeSpinner.getSelectedItem().toString();
+            return new CollectionItem(id, imgLocation, name, description, price, manufacturedDate, historicLocation, type);
         }
-        String name = item_name.getText().toString();
-        String description = item_description.getText().toString();
-        Float price = Float.parseFloat(item_price.getText().toString());
-        Date manufacturedDate=null;
+        return null;
+    }
+
+    private boolean validate() {
+        if (itemName.getText().toString() == null || itemName.getText().toString().trim().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Incorect name", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (itemDescription.getText().toString() == null || itemDescription.getText().toString().trim().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Incorect description", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (itemLocation.getText().toString() == null || itemLocation.getText().toString().trim().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Incorect location", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (itemPrice.getText().toString() == null || itemPrice.getText().toString().trim().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Incorect price", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (itemManufaturedDate.getText().toString() == null || itemPrice.getText().toString().trim().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Incorect price", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (itemManufaturedDate.getText() == null || itemManufaturedDate.getText().toString().trim().isEmpty() || !validateDate(itemManufaturedDate.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Incorect date", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean validateDate(String strDate) {
+        SimpleDateFormat simpleDateFormat =
+                new SimpleDateFormat(DATE_FORMAT, Locale.US);
         try {
-            manufacturedDate = new SimpleDateFormat(DATE_FORMAT, Locale.US)
-                    .parse(item_manufatured_date.getText().toString());
+            simpleDateFormat.parse(strDate);
         } catch (ParseException e) {
             e.printStackTrace();
+            return false;
         }
-        String historicLocation=item_location.getText().toString();
-        String type=type_spinner.getSelectedItem().toString();
-        return new CollectionItem(id,imgLocation,name,description,price,manufacturedDate,historicLocation,type);
+        return true;
     }
 
 
@@ -150,7 +184,7 @@ public class AddItemActivity extends AppCompatActivity {
             image = File.createTempFile(
                     imageFileName,
                     JPEG_FILE_SUFFIX,
-                    image_directory
+                    imageDirectory
             );
         } catch (IOException e) {
             e.printStackTrace();
@@ -186,16 +220,16 @@ public class AddItemActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case android.R.id.home:
+                setResult(RESULT_CANCELED, intent);
                 finish();
                 return true;
             case R.id.done_action:
-//                Toast.makeText(this, item.getItemId() + "", Toast.LENGTH_SHORT).show();
-//                Toast.makeText(this, createFromView().toString(), Toast.LENGTH_SHORT).show();
-                collectionItem=createFromView();
-                intent.putExtra("item",collectionItem);
-                setResult(RESULT_OK, intent);
-//                HomeFragment.collectionItems.add(createFromView());
-                finish();
+                collectionItem = createFromView();
+                if (collectionItem != null) {
+                    intent.putExtra("item", collectionItem);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -275,7 +309,7 @@ public class AddItemActivity extends AppCompatActivity {
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(AddItemActivity.this,
                     android.R.layout.simple_spinner_item, types_from_json);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            type_spinner.setAdapter(adapter);
+            typeSpinner.setAdapter(adapter);
 
         }
     }
