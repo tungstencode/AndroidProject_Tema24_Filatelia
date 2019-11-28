@@ -8,6 +8,9 @@
         <item>Bancnota</item>
         <item>Accesorii</item>
     </string-array>
+    <string-array name="websites">
+        <item>Filantelie.ro</item>
+    </string-array>
     <attr format="boolean" name="barrierAllowsGoneWidgets"/>
     <attr format="enum" name="barrierDirection">
         <enum name="left" value="0"/>

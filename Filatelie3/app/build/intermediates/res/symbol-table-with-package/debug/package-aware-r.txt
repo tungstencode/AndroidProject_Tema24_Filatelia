@@ -42,6 +42,7 @@ animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
 array types
+array websites
 attr action
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1329,6 +1330,7 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1352,6 +1354,7 @@ id up
 id useLogo
 id view_offset_helper
 id visible
+id website_lsitview
 id withText
 id wrap
 id wrap_content
@@ -1432,6 +1435,7 @@ layout fragment_home
 layout fragment_profile
 layout fragment_search
 layout fragment_settings
+layout listview
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
