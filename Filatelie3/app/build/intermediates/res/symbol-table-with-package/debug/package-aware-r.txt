@@ -1155,6 +1155,7 @@ id activity_chooser_view_content
 id add
 id add_item
 id alertTitle
+id align
 id all
 id always
 id async

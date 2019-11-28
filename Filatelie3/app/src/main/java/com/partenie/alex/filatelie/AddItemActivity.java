@@ -226,6 +226,7 @@ public class AddItemActivity extends AppCompatActivity {
             Toast.makeText(this, image.getAbsolutePath(), Toast.LENGTH_LONG).show();
             Bitmap photo = BitmapFactory.decodeFile(image.getAbsolutePath());
             preview.setImageBitmap(photo);
+
         }
     }
 
