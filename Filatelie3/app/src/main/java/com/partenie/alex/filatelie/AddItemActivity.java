@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -54,7 +57,7 @@ public class AddItemActivity extends AppCompatActivity {
     EditText itemLocation;
     Spinner typeSpinner;
     Gson gson = new Gson();
-    String[] types_from_json;
+    String[] typesFromJson;
     ProgressDialog pd;
     View photoLayout;
     ImageView preview;
@@ -72,14 +75,24 @@ public class AddItemActivity extends AppCompatActivity {
         preload();
     }
 
-    private void preload() {
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
-        this.getSupportActionBar().setTitle(R.string.add_item_app_bar_title);
-        if (intent.getStringExtra("key") != null) {
-            this.getSupportActionBar().setTitle("Edit " + intent.getStringExtra("key"));
+    private void updateUI() {
+        itemName.setText(collectionItem.name);
+        itemManufaturedDate.setText(new SimpleDateFormat("dd-MM-yyyy").format(collectionItem.manufacturedDate));
+        itemPrice.setText(collectionItem.price.toString());
+        itemLocation.setText(collectionItem.historicLocation);
+        itemDescription.setText(collectionItem.description);
+        if (collectionItem.imgLocation.isEmpty()) {
+            preview.setImageResource(R.drawable.ic_add_black_24dp);
+        } else {
+            Bitmap photo = BitmapFactory.decodeFile(collectionItem.imgLocation);
+            preview.setImageBitmap(photo);
         }
+        typeSpinner.setSelection(((ArrayAdapter<CharSequence>) typeSpinner.getAdapter()).getPosition(collectionItem.type));
 
+
+    }
+
+    private void preload() {
         typeSpinner = findViewById(R.id.item_type);
         itemName = findViewById(R.id.item_name);
         itemDescription = findViewById(R.id.item_description);
@@ -88,15 +101,8 @@ public class AddItemActivity extends AppCompatActivity {
         itemManufaturedDate = findViewById(R.id.item_manufatured_date);
         photoLayout = findViewById(R.id.stamp_photo);
         preview = findViewById(R.id.img);
-        if (MainActivity.INTERNET) {
-            new JsonTask().execute("https://api.myjson.com/bins/iueei");
-        } else {
-            ArrayAdapter<CharSequence> adapter =
-                    ArrayAdapter.createFromResource(getApplicationContext(), R.array.types,
-                            android.R.layout.simple_spinner_item);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            typeSpinner.setAdapter(adapter);
-        }
+//        new JsonTask().execute("https://api.myjson.com/bins/iueei");
+        populateFromXML();
         photoLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +111,15 @@ public class AddItemActivity extends AppCompatActivity {
         });
         imageDirectory = new File(photoFolder);
 
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
+        this.getSupportActionBar().setTitle(R.string.add_item_app_bar_title);
+        if (intent.getStringExtra("key") != null) {
+            this.getSupportActionBar().setTitle("Edit " + intent.getStringExtra("key"));
+            collectionItem = intent.getParcelableExtra(String.valueOf(R.string.EDIT_ITEM_KEY));
+            Toast.makeText(getApplicationContext(), collectionItem.name + "", Toast.LENGTH_LONG).show();
+            updateUI();
+        }
     }
 
     private CollectionItem createFromView() {
@@ -221,6 +236,11 @@ public class AddItemActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 setResult(RESULT_CANCELED, intent);
+                if (image != null) {
+                    if (image.isFile() && image.exists()) {
+                        image.delete();
+                    }
+                }
                 finish();
                 return true;
             case R.id.done_action:
@@ -240,11 +260,40 @@ public class AddItemActivity extends AppCompatActivity {
         return true;
     }
 
+    private void populateFromXML() {
+        ArrayAdapter<CharSequence> adapter =
+                ArrayAdapter.createFromResource(getApplicationContext(), R.array.types,
+                        android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        typeSpinner.setAdapter(adapter);
+    }
+
+    public boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void populateFromJson(String result) {
+        typesFromJson = gson.fromJson(result, String[].class);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(AddItemActivity.this,
+                android.R.layout.simple_spinner_item, typesFromJson);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        typeSpinner.setAdapter(adapter);
+        if (intent.getStringExtra("key") != null) {
+            typeSpinner.setSelection(((ArrayAdapter<String>) typeSpinner.getAdapter()).getPosition(collectionItem.type));
+        }
+
+    }
+
     private class JsonTask extends AsyncTask<String, String, String> {
 
         protected void onPreExecute() {
             super.onPreExecute();
-
             pd = new ProgressDialog(AddItemActivity.this);
             pd.setMessage("Please wait");
             pd.setCancelable(false);
@@ -252,47 +301,37 @@ public class AddItemActivity extends AppCompatActivity {
         }
 
         protected String doInBackground(String... params) {
-
-
-            HttpURLConnection connection = null;
-            BufferedReader reader = null;
-
-            try {
-                URL url = new URL(params[0]);
-                connection = (HttpURLConnection) url.openConnection();
-                connection.connect();
-
-
-                InputStream stream = connection.getInputStream();
-
-                reader = new BufferedReader(new InputStreamReader(stream));
-
-                StringBuffer buffer = new StringBuffer();
-                String line = "";
-
-                while ((line = reader.readLine()) != null) {
-                    buffer.append(line + "\n");
-                    Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
-
-                }
-
-                return buffer.toString();
-
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                if (connection != null) {
-                    connection.disconnect();
-                }
+            if (isOnline()) {
+                HttpURLConnection connection = null;
+                BufferedReader reader = null;
                 try {
-                    if (reader != null) {
-                        reader.close();
+                    URL url = new URL(params[0]);
+                    connection = (HttpURLConnection) url.openConnection();
+                    connection.connect();
+                    InputStream stream = connection.getInputStream();
+                    reader = new BufferedReader(new InputStreamReader(stream));
+                    StringBuffer buffer = new StringBuffer();
+                    String line = "";
+                    while ((line = reader.readLine()) != null) {
+                        buffer.append(line + "\n");
+                        Log.d("Response: ", "> " + line);   //here u ll get whole response...... :-)
                     }
+                    return buffer.toString();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
+                } finally {
+                    if (connection != null) {
+                        connection.disconnect();
+                    }
+                    try {
+                        if (reader != null) {
+                            reader.close();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
             return null;
@@ -304,13 +343,11 @@ public class AddItemActivity extends AppCompatActivity {
             if (pd.isShowing()) {
                 pd.dismiss();
             }
-
-            types_from_json = gson.fromJson(result, String[].class);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(AddItemActivity.this,
-                    android.R.layout.simple_spinner_item, types_from_json);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            typeSpinner.setAdapter(adapter);
-
+            if (result == null) {
+                populateFromXML();
+            } else {
+                populateFromJson(result);
+            }
         }
     }
 }

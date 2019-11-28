@@ -3757,7 +3757,9 @@
         <item>Timbru</item>
         <item>FDC</item>
         <item>Carte postala</item>
-    </string-array></file><file path="D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item>Bancnota</item>
+        <item>Accesorii</item>
+    </string-array><string name="EDIT_ITEM_KEY">ColectionItem</string></file><file path="D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

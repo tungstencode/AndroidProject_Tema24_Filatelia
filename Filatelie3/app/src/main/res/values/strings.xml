@@ -8,11 +8,14 @@
     <string name="add_item_app_bar_title">Add new item</string>
     <string name="camera_storage_permision">This app uses camera and storage</string>
     <string name="action_done">done</string>
+    <string name="EDIT_ITEM_KEY">ColectionItem</string>
 
     <string-array name="types">
         <item>Moneda</item>
         <item>Timbru</item>
         <item>FDC</item>
         <item>Carte postala</item>
+        <item>Bancnota</item>
+        <item>Accesorii</item>
     </string-array>
 </resources>
