@@ -1223,6 +1223,7 @@ id container
 id content
 id contentPanel
 id coordinator
+id country_info
 id custom
 id customPanel
 id dark
@@ -1252,6 +1253,7 @@ id filled
 id fixed
 id forever
 id fragment_container
+id get_location_info
 id ghost_view
 id gone
 id group_divider
@@ -1283,9 +1285,7 @@ id line1
 id line3
 id listMode
 id list_item
-id loading
 id log_out
-id login
 id masked
 id message
 id middle
@@ -1309,7 +1309,6 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
-id password
 id percent
 id pin
 id profile
@@ -1404,7 +1403,6 @@ id uniform
 id unlabeled
 id up
 id useLogo
-id username
 id view_offset_helper
 id visible
 id website_lsitview
@@ -1468,7 +1466,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_add_item
-layout activity_login
 layout activity_main
 layout collection_item_layout
 layout custom_dialog

@@ -1,5 +1,7 @@
 package com.partenie.alex.filatelie.util;
 
+import java.util.Arrays;
+
 public final class Country {
     public final String name;
     public final String[] topLevelDomain;
@@ -25,6 +27,36 @@ public final class Country {
     public final String flag;
     public final RegionalBloc regionalBlocs[];
     public final String cioc;
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "name='" + name + '\'' +
+                ", topLevelDomain=" + Arrays.toString(topLevelDomain) +
+                ", alpha2Code='" + alpha2Code + '\'' +
+                ", alpha3Code='" + alpha3Code + '\'' +
+                ", callingCodes=" + Arrays.toString(callingCodes) +
+                ", capital='" + capital + '\'' +
+                ", altSpellings=" + Arrays.toString(altSpellings) +
+                ", region='" + region + '\'' +
+                ", subregion='" + subregion + '\'' +
+                ", population=" + population +
+                ", latlng=" + Arrays.toString(latlng) +
+                ", demonym='" + demonym + '\'' +
+                ", area=" + area +
+                ", gini=" + gini +
+                ", timezones=" + Arrays.toString(timezones) +
+                ", borders=" + Arrays.toString(borders) +
+                ", nativeName='" + nativeName + '\'' +
+                ", numericCode='" + numericCode + '\'' +
+                ", currencies=" + Arrays.toString(currencies) +
+                ", languages=" + Arrays.toString(languages) +
+                ", translations=" + translations +
+                ", flag='" + flag + '\'' +
+                ", regionalBlocs=" + Arrays.toString(regionalBlocs) +
+                ", cioc='" + cioc + '\'' +
+                '}';
+    }
 
     public Country(String name, String[] topLevelDomain, String alpha2Code, String alpha3Code, String[] callingCodes, String capital, String[] altSpellings, String region, String subregion, long population, int[] latlng, String demonym, long area, long gini, String[] timezones, String[] borders, String nativeName, String numericCode, Currency[] currencies, Language[] languages, Translations translations, String flag, RegionalBloc[] regionalBlocs, String cioc){
         this.name = name;

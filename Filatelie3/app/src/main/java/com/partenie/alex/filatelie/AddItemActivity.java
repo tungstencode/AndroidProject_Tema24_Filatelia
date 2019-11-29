@@ -23,13 +23,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.partenie.alex.filatelie.util.CollectionItem;
+import com.partenie.alex.filatelie.util.Country;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -41,6 +44,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
@@ -64,6 +68,8 @@ public class AddItemActivity extends AppCompatActivity {
     File imageDirectory;
     File image = null;
     CollectionItem collectionItem = null;
+    Button getLocationInfo;
+    TextView countryInfo;
     String photoFolder = Environment.getExternalStorageDirectory() + "/CollectionPhotos";
 
 
@@ -100,8 +106,19 @@ public class AddItemActivity extends AppCompatActivity {
         itemPrice = findViewById(R.id.item_price);
         itemManufaturedDate = findViewById(R.id.item_manufatured_date);
         photoLayout = findViewById(R.id.stamp_photo);
+        countryInfo = findViewById(R.id.country_info);
         preview = findViewById(R.id.img);
-//        new JsonTask().execute("https://api.myjson.com/bins/iueei");
+        getLocationInfo = findViewById(R.id.get_location_info);
+        getLocationInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                countryInfo.setVisibility(View.VISIBLE);
+                new JsonTask().execute("https://restcountries.eu/rest/v2/name/" + itemLocation.getText().toString());
+                Toast.makeText(getApplicationContext(),itemLocation.getText().toString(), Toast.LENGTH_LONG).show();
+//                countryInfo.setText("some country info from api\n\n\n\n\n\n");
+            }
+        });
+
         populateFromXML();
         photoLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +134,8 @@ public class AddItemActivity extends AppCompatActivity {
         if (intent.getStringExtra("key") != null) {
             this.getSupportActionBar().setTitle("Edit " + intent.getStringExtra("key"));
             collectionItem = intent.getParcelableExtra(String.valueOf(R.string.EDIT_ITEM_KEY));
-            Toast.makeText(getApplicationContext(), collectionItem.name + "", Toast.LENGTH_LONG).show();
+//            Toast.makeText(getApplicationContext(), collectionItem.name + "", Toast.LENGTH_LONG).show();
+            getLocationInfo.setVisibility(View.VISIBLE);
             updateUI();
         }
     }
@@ -345,9 +363,17 @@ public class AddItemActivity extends AppCompatActivity {
                 pd.dismiss();
             }
             if (result == null) {
-                populateFromXML();
+                countryInfo.setText("Error");
             } else {
-                populateFromJson(result);
+                Country country[] = gson.fromJson(result,Country[].class);
+                String builder=null;
+                builder=country[0].name+"/"+country[0].nativeName+"\n"+
+                        "Capital: "+country[0].capital+", Region: "+country[0].subregion+"\n"+
+                        "Currency: "+country[0].currencies[0].name+"\n"+
+                        "Language: "+country[0].languages[0].name +"\n"+
+                        "Population: "+country[0].population;
+                countryInfo.setText(builder);
+//                countryInfo.setText(country[0].toString());
             }
         }
     }

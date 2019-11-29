@@ -84,8 +84,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:layout_marginBottom="32dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_manufatured_date"
                     tools:layout_editor_absoluteX="0dp" />
 
@@ -108,6 +106,27 @@
                     android:hint="10-10-2010"
                     android:inputType="date"
                     app:layout_constraintTop_toBottomOf="@+id/item_price" />
+
+                <Button
+                    android:id="@+id/get_location_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Location Info"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_type" />
+
+                <TextView
+                    android:id="@+id/country_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/get_location_info" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
