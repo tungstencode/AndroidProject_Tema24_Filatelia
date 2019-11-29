@@ -20,6 +20,25 @@
     </string-array>
 
     <string-array name="websites">
-        <item>Filantelie.ro</item>
+        <item>http://www.filatelistul.ro/</item>
+        <item>http://www.romfilatelia.ro</item>
+        <item>https://www.magazinul-colectionarilor.ro/</item>
+        <item>http://www.filatelistul.ro</item>
+        <item>http://filatelia.md/</item>
+        <item>https://www.antic-shop.ro</item>
+        <item>http://collect-shop.ro</item>
+        <item>https://timbresimonede.ro/</item>
+        <item>http://www.federatia-filatelica.ro/</item>
+        <item>https://colnect.com/ro/</item>
     </string-array>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="default_web_client_id">1</string>
 </resources>
