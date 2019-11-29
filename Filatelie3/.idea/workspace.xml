@@ -84,12 +84,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/AddItemActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="371" column="28" lean-forward="true" selection-start-line="371" selection-start-column="28" selection-end-line="371" selection-end-column="28" />
+            <state relative-caret-position="218">
+              <caret line="267" column="17" selection-start-line="267" selection-start-column="17" selection-end-line="267" selection-end-column="17" />
               <folding>
-                <element signature="e#3697#3881#0" expanded="true" />
-                <element signature="e#3880#3881#0" expanded="true" />
-                <element signature="e#4323#4345#0" expanded="true" />
+                <element signature="e#4004#4497#0" expanded="true" />
+                <element signature="e#4496#4497#0" expanded="true" />
+                <element signature="e#5219#5241#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -498,7 +498,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20469798" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.20469798" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
@@ -516,7 +516,7 @@
       <window_info anchor="bottom" id="Flutter Performance" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Build" order="9" sideWeight="0.4899329" weight="0.13826816" />
-      <window_info anchor="bottom" id="Find" order="10" sideWeight="0.4986577" weight="0.32960895" />
+      <window_info active="true" anchor="bottom" id="Find" order="10" sideWeight="0.4986577" visible="true" weight="0.32960895" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.3295302" />
@@ -767,12 +767,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/AddItemActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="371" column="28" lean-forward="true" selection-start-line="371" selection-start-column="28" selection-end-line="371" selection-end-column="28" />
+        <state relative-caret-position="218">
+          <caret line="267" column="17" selection-start-line="267" selection-start-column="17" selection-end-line="267" selection-end-column="17" />
           <folding>
-            <element signature="e#3697#3881#0" expanded="true" />
-            <element signature="e#3880#3881#0" expanded="true" />
-            <element signature="e#4323#4345#0" expanded="true" />
+            <element signature="e#4004#4497#0" expanded="true" />
+            <element signature="e#4496#4497#0" expanded="true" />
+            <element signature="e#5219#5241#0" expanded="true" />
           </folding>
         </state>
       </provider>

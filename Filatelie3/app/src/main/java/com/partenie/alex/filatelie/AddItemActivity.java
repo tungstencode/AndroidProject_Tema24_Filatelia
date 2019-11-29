@@ -67,6 +67,7 @@ public class AddItemActivity extends AppCompatActivity {
     ImageView preview;
     File imageDirectory;
     File image = null;
+    File imageSaved = null;
     CollectionItem collectionItem = null;
     Button getLocationInfo;
     TextView countryInfo;
@@ -92,6 +93,8 @@ public class AddItemActivity extends AppCompatActivity {
         } else {
             Bitmap photo = BitmapFactory.decodeFile(collectionItem.imgLocation);
             preview.setImageBitmap(photo);
+            image = new File(collectionItem.imgLocation);
+            imageSaved = image;
         }
         typeSpinner.setSelection(((ArrayAdapter<CharSequence>) typeSpinner.getAdapter()).getPosition(collectionItem.type));
 
@@ -114,7 +117,7 @@ public class AddItemActivity extends AppCompatActivity {
             public void onClick(View view) {
                 countryInfo.setVisibility(View.VISIBLE);
                 new JsonTask().execute("https://restcountries.eu/rest/v2/name/" + itemLocation.getText().toString());
-                Toast.makeText(getApplicationContext(),itemLocation.getText().toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), itemLocation.getText().toString(), Toast.LENGTH_LONG).show();
 //                countryInfo.setText("some country info from api\n\n\n\n\n\n");
             }
         });
@@ -244,7 +247,8 @@ public class AddItemActivity extends AppCompatActivity {
             Toast.makeText(this, image.getAbsolutePath(), Toast.LENGTH_LONG).show();
             Bitmap photo = BitmapFactory.decodeFile(image.getAbsolutePath());
             preview.setImageBitmap(photo);
-
+        } else {
+            image = imageSaved;
         }
     }
 
@@ -255,9 +259,11 @@ public class AddItemActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 setResult(RESULT_CANCELED, intent);
-                if (image != null) {
-                    if (image.isFile() && image.exists()) {
-                        image.delete();
+                if (intent.getStringExtra("key") == null) {
+                    if (image != null) {
+                        if (image.isFile() && image.exists()) {
+                            image.delete();
+                        }
                     }
                 }
                 finish();
@@ -365,13 +371,13 @@ public class AddItemActivity extends AppCompatActivity {
             if (result == null) {
                 countryInfo.setText("Error");
             } else {
-                Country country[] = gson.fromJson(result,Country[].class);
-                String builder=null;
-                builder=country[0].name+"/"+country[0].nativeName+"\n"+
-                        "Capital: "+country[0].capital+", Region: "+country[0].subregion+"\n"+
-                        "Currency: "+country[0].currencies[0].name+"\n"+
-                        "Language: "+country[0].languages[0].name +"\n"+
-                        "Population: "+country[0].population;
+                Country country[] = gson.fromJson(result, Country[].class);
+                String builder = null;
+                builder = country[0].name + "/" + country[0].nativeName + "\n" +
+                        "Capital: " + country[0].capital + ", Region: " + country[0].subregion + "\n" +
+                        "Currency: " + country[0].currencies[0].name + "\n" +
+                        "Language: " + country[0].languages[0].name + "\n" +
+                        "Population: " + country[0].population;
                 countryInfo.setText(builder);
 //                countryInfo.setText(country[0].toString());
             }
