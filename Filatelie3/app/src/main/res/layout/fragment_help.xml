@@ -5,10 +5,39 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/creator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="help"
-        android:textSize="30dp"
-        android:layout_centerInParent="true"/>
+        android:text="Partenie Alex\n Grupa 1081, Seria D"
+        android:textSize="24dp"
+        android:layout_marginTop="60dp"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"/>
+
+
+
+    <TextView
+        android:id="@+id/about_name_proj"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aplicatie in sprijinul filantelistilor\nDAM Project" />
+
+    <TextView
+        android:id="@+id/version"
+        android:textSize="16dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Version 1.0" />
+
+
+
 
 </RelativeLayout>
