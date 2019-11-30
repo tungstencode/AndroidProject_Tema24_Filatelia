@@ -1,6 +1,8 @@
 package com.partenie.alex.filatelie;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,13 +24,16 @@ import static android.app.Activity.RESULT_OK;
 public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private static ArrayList<CollectionItem> collectionItems = new ArrayList<>();
+    SharedPreferences sharedPreferences;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = view.findViewById(R.id.recycler_view_gallery);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(view.getContext(), 2);
+        sharedPreferences=view.getContext().getSharedPreferences("settings", Context.MODE_PRIVATE);
+
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(view.getContext(), sharedPreferences.getInt("itemsPerCollumn",1)+1);
         recyclerView.setLayoutManager(layoutManager);
         ArrayList<CollectionItem> createLists = prepareData(view);
         CollectionItemAdapter adapter = new CollectionItemAdapter(this, createLists);
