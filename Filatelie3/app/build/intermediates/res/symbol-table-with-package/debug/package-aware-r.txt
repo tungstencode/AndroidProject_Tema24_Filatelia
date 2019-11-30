@@ -1282,6 +1282,7 @@ id item_price
 id item_touch_helper_previous_elevation
 id item_type
 id label_grid_setting
+id label_nr_of_stamps
 id labeled
 id largeLabel
 id left
@@ -1306,6 +1307,7 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id nr_of_stamps
 id off
 id on
 id outline
@@ -1582,6 +1584,7 @@ string login_failed
 string mtrl_chip_close_icon_content_description
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
+string number_of_stramps
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through

@@ -56,12 +56,19 @@ public class ProfileFragment extends Fragment {
     private TextView profileName;
     private Button logOut;
     private ImageView profileImage;
+    private TextView nrOfStamps;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+        nrOfStamps=view.findViewById(R.id.nr_of_stamps);
+        if(HomeFragment.collectionItems!=null){
+            nrOfStamps.setText(String.valueOf(HomeFragment.collectionItems.size()));
+        }else{
+            nrOfStamps.setText("0");
+        }
 
         profileImage = view.findViewById(R.id.profile_image);
         logOut = view.findViewById(R.id.log_out);
@@ -87,6 +94,7 @@ public class ProfileFragment extends Fragment {
                 MainActivity.sharedpreferences.edit().putBoolean("loggedin", false).apply();
                 profile.setVisibility(View.GONE);
                 googleSignInButton.setVisibility(View.VISIBLE);
+                googleSignInClient.signOut();
             }
         });
 

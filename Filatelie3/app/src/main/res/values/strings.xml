@@ -46,4 +46,5 @@
     <string name="version">Version 1.0</string>
     <string name="items_per_collumn">Items per collumn</string>
     <string name="seekbar_number">2</string>
+    <string name="number_of_stramps">Number of stramps</string>
 </resources>

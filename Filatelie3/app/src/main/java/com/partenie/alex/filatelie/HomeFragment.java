@@ -23,15 +23,14 @@ import static android.app.Activity.RESULT_OK;
 
 public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
-    private static ArrayList<CollectionItem> collectionItems = new ArrayList<>();
-    SharedPreferences sharedPreferences;
+    public static ArrayList<CollectionItem> collectionItems = new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = view.findViewById(R.id.recycler_view_gallery);
-        sharedPreferences=view.getContext().getSharedPreferences("settings", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("settings", Context.MODE_PRIVATE);
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(view.getContext(), sharedPreferences.getInt("itemsPerCollumn",1)+1);
         recyclerView.setLayoutManager(layoutManager);
