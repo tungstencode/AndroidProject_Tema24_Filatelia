@@ -32,11 +32,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         requirePerm();
         sharedpreferences = getSharedPreferences(USER_PREFERENCE, Context.MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedpreferences.edit();
-        if (!sharedpreferences.getBoolean("loggedin", false)) {
+        if (!sharedpreferences.getBoolean(getString(R.string.LOGIN_KEY), false)) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
             bottomNavigationView.setSelectedItemId(R.id.profile);
-            Toast.makeText(getApplicationContext(), "You are not logged in.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.NO_LOGIN_MESSAGE), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -50,8 +49,7 @@ public class MainActivity extends AppCompatActivity {
     @AfterPermissionGranted(RC_CAMERA_AND_STORAGE)
     private void requirePerm() {
         String[] perms = {Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        if (EasyPermissions.hasPermissions(this, perms)) {
-        } else {
+        if (!EasyPermissions.hasPermissions(this, perms)) {
             EasyPermissions.requestPermissions(this, getString(R.string.camera_storage_permision),
                     RC_CAMERA_AND_STORAGE, perms);
         }
@@ -60,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            Fragment selectedFragment = null;
+            Fragment selectedFragment = new ProfileFragment();
             switch (menuItem.getItemId()) {
                 case R.id.add_item:
                     selectedFragment = new HomeFragment();

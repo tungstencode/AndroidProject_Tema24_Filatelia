@@ -20,7 +20,7 @@
             android:id="@+id/label_grid_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
             android:text="@string/items_per_collumn"
             android:textSize="24sp" />
 

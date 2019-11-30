@@ -46,7 +46,8 @@
                         tools:layout_conversion_absoluteHeight="24dp"
                         tools:layout_conversion_absoluteWidth="24dp"
                         tools:layout_editor_absoluteX="63dp"
-                        tools:layout_editor_absoluteY="79dp" />
+                        tools:layout_editor_absoluteY="79dp"
+                        android:contentDescription="@string/taken_photo" />
 
                 </LinearLayout>
 

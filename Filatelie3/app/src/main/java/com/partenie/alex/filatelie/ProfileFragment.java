@@ -8,44 +8,30 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Base64InputStream;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Objects;
-
-import static android.content.ContentValues.TAG;
 
 public class ProfileFragment extends Fragment {
     private GoogleApiClient mGoogleApiClient;
@@ -57,6 +43,7 @@ public class ProfileFragment extends Fragment {
     private Button logOut;
     private ImageView profileImage;
     private TextView nrOfStamps;
+    private static final int GOOGLE_CODE=505;
 
     @Nullable
     @Override
@@ -67,7 +54,7 @@ public class ProfileFragment extends Fragment {
         if(HomeFragment.collectionItems!=null){
             nrOfStamps.setText(String.valueOf(HomeFragment.collectionItems.size()));
         }else{
-            nrOfStamps.setText("0");
+            nrOfStamps.setText(getString(R.string.zero));
         }
 
         profileImage = view.findViewById(R.id.profile_image);
@@ -76,7 +63,7 @@ public class ProfileFragment extends Fragment {
         profileName = view.findViewById(R.id.profile_name);
         googleSignInButton = view.findViewById(R.id.sign_in_button);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("603668152714-4nag6u7c9oj5dlbirj8fa5r8oo9ec2f7.apps.googleusercontent.com")
+                .requestIdToken(getString(R.string.token))
                 .requestEmail()
                 .build();
         googleSignInClient = GoogleSignIn.getClient(view.getContext(), gso);
@@ -84,27 +71,25 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent signInIntent = googleSignInClient.getSignInIntent();
-                startActivityForResult(signInIntent, 505);
+                startActivityForResult(signInIntent, GOOGLE_CODE);
             }
         });
 
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.sharedpreferences.edit().putBoolean("loggedin", false).apply();
+                MainActivity.sharedpreferences.edit().putBoolean(getString(R.string.LOGIN_KEY), false).apply();
                 profile.setVisibility(View.GONE);
                 googleSignInButton.setVisibility(View.VISIBLE);
                 googleSignInClient.signOut();
             }
         });
 
-        if (MainActivity.sharedpreferences.getBoolean("loggedin", false)) {
+        if (MainActivity.sharedpreferences.getBoolean(getString(R.string.LOGIN_KEY), false)) {
             profile.setVisibility(View.VISIBLE);
             googleSignInButton.setVisibility(View.GONE);
-            profileName.setText(MainActivity.sharedpreferences.getString("name", "Guest"));
-            profileImage.setImageBitmap(loadImageBitmap(getContext(), "my_image.jpeg"));
-            Log.println(Log.INFO, "someti", "din shared");
-
+            profileName.setText(MainActivity.sharedpreferences.getString(getString(R.string.NAME_KEY), getString(R.string.NAME_DEFAULT)));
+            profileImage.setImageBitmap(loadImageBitmap(getContext(), getString(R.string.profile_picture)));
         } else {
             profile.setVisibility(View.GONE);
             googleSignInButton.setVisibility(View.VISIBLE);
@@ -113,20 +98,18 @@ public class ProfileFragment extends Fragment {
         return view;
     }
 
-    public void saveImage(Context context, Bitmap b, String imageName) {
+    private void saveImage(Context context, Bitmap b, String imageName) {
         FileOutputStream foStream;
         try {
             foStream = context.openFileOutput(imageName, Context.MODE_PRIVATE);
             b.compress(Bitmap.CompressFormat.PNG, 100, foStream);
             foStream.close();
         } catch (Exception e) {
-            Log.d("saveImage", "Exception 2, Something went wrong!");
             e.printStackTrace();
         }
     }
 
     private class DownloadImage extends AsyncTask<String, Void, Bitmap> {
-        private String TAG = "DownloadImage";
 
         private Bitmap downloadImageBitmap(String sUrl) {
             Bitmap bitmap = null;
@@ -135,7 +118,6 @@ public class ProfileFragment extends Fragment {
                 bitmap = BitmapFactory.decodeStream(inputStream);       // Decode Bitmap
                 inputStream.close();
             } catch (Exception e) {
-                Log.d(TAG, "Exception 1, Something went wrong!");
                 e.printStackTrace();
             }
             return bitmap;
@@ -147,8 +129,8 @@ public class ProfileFragment extends Fragment {
         }
 
         protected void onPostExecute(Bitmap result) {
-            saveImage(getContext(), result, "my_image.jpeg");
-            profileImage.setImageBitmap(loadImageBitmap(getContext(), "my_image.jpeg"));
+            saveImage(getContext(), result, getString(R.string.profile_picture));
+            profileImage.setImageBitmap(loadImageBitmap(getContext(), getString(R.string.profile_picture)));
         }
     }
 
@@ -161,7 +143,6 @@ public class ProfileFragment extends Fragment {
             bitmap = BitmapFactory.decodeStream(fiStream);
             fiStream.close();
         } catch (Exception e) {
-            Log.d("saveImage", "Exception 3, Something went wrong!");
             e.printStackTrace();
         }
         return bitmap;
@@ -169,15 +150,14 @@ public class ProfileFragment extends Fragment {
 
 
     private void onLoggedIn(GoogleSignInAccount googleSignInAccount) {
-        Toast.makeText(getContext(), "Logged in", Toast.LENGTH_LONG).show();
         googleSignInButton.setVisibility(View.GONE);
         profile.setVisibility(View.VISIBLE);
         profileName.setText(googleSignInAccount.getDisplayName());
         googleSignInAccount.getPhotoUrl();
         new DownloadImage().execute(googleSignInAccount.getPhotoUrl().toString());
         SharedPreferences.Editor editor = MainActivity.sharedpreferences.edit();
-        editor.putBoolean("loggedin", true);
-        editor.putString("name", googleSignInAccount.getDisplayName());
+        editor.putBoolean(getString(R.string.LOGIN_KEY), true);
+        editor.putString(getString(R.string.NAME_DEFAULT), googleSignInAccount.getDisplayName());
         editor.commit();
 
     }
@@ -188,16 +168,14 @@ public class ProfileFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK)
             switch (requestCode) {
-                case 505:
+                case GOOGLE_CODE:
                     try {
-                        // The Task returned from this call is always completed, no need to attach
-                        // a listener.
                         Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                         GoogleSignInAccount account = task.getResult(ApiException.class);
-                        onLoggedIn(account);
+                        if (account != null) {
+                            onLoggedIn(account);
+                        }
                     } catch (ApiException e) {
-                        // The ApiException status code indicates the detailed failure reason.
-                        Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
                     }
                     break;
             }

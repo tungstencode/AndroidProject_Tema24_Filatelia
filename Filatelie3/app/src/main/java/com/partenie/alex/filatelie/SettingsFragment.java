@@ -23,12 +23,12 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_settings, container, false);
-        sharedPreferences = view.getContext().getSharedPreferences("settings", Context.MODE_PRIVATE);
+        sharedPreferences = view.getContext().getSharedPreferences(getString(R.string.SETTING_PREFERENCE), Context.MODE_PRIVATE);
         seekBar=view.findViewById(R.id.grid_layout_seekbar);
         textView=view.findViewById(R.id.grid_text);
 
-        textView.setText(String.valueOf(sharedPreferences.getInt("itemsPerCollumn",1)+1));
-        seekBar.setProgress(sharedPreferences.getInt("itemsPerCollumn",1));
+        textView.setText(String.valueOf(sharedPreferences.getInt(getString(R.string.ITEM_PER_COLLUMN_KEY),1)+1));
+        seekBar.setProgress(sharedPreferences.getInt(getString(R.string.ITEM_PER_COLLUMN_KEY),1));
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -43,8 +43,8 @@ public class SettingsFragment extends Fragment {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("settings", Context.MODE_PRIVATE);
-                sharedPreferences.edit().putInt("itemsPerCollumn",seekBar.getProgress()).apply();
+                SharedPreferences sharedPreferences = view.getContext().getSharedPreferences(getString(R.string.SETTING_PREFERENCE), Context.MODE_PRIVATE);
+                sharedPreferences.edit().putInt(getString(R.string.ITEM_PER_COLLUMN_KEY),seekBar.getProgress()).apply();
             }
         });
 

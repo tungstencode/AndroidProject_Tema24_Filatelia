@@ -15,14 +15,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class SearchFragment extends Fragment {
-    ListView simpleList;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
-        simpleList = (ListView)view.findViewById(R.id.website_lsitview);
+        ListView simpleList = (ListView) view.findViewById(R.id.website_list_view);
         final ArrayAdapter<CharSequence> adapter =
                 ArrayAdapter.createFromResource(view.getContext(), R.array.websites,
                         R.layout.custom_list_item);

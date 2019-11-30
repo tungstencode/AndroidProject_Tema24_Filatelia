@@ -21,6 +21,9 @@ import java.util.ArrayList;
 public class CollectionItemAdapter extends RecyclerView.Adapter<CollectionItemAdapter.ViewHolder> {
     private ArrayList<CollectionItem> galleryList;
     private HomeFragment context;
+    public static final int ADD_ITEM_CODE = 303;
+    public static final int EDIT_ITEM_CODE = 202;
+
 
     public CollectionItemAdapter(HomeFragment context, ArrayList<CollectionItem> galleryList) {
         this.galleryList = galleryList;
@@ -36,15 +39,15 @@ public class CollectionItemAdapter extends RecyclerView.Adapter<CollectionItemAd
 
     @Override
     public void onBindViewHolder(@NonNull final CollectionItemAdapter.ViewHolder holder, final int position) {
-        if (galleryList.get(position).getName() == "-1") {
-            holder.title.setText("");
+        if (galleryList.get(position).getName() == context.getString(R.string.ADD_ITEM_NAME_KEY)) {
+            holder.title.setText(R.string.ADD_ITEM_STRING);
             holder.img.setScaleType(ImageView.ScaleType.CENTER_CROP);
             holder.img.setImageResource(R.drawable.ic_add_circle_outline_black_24dp);
             holder.img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context.getContext(), AddItemActivity.class);
-                    context.startActivityForResult(intent, 303);
+                    context.startActivityForResult(intent, ADD_ITEM_CODE);
                 }
             });
         } else {
@@ -56,10 +59,10 @@ public class CollectionItemAdapter extends RecyclerView.Adapter<CollectionItemAd
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(view.getContext(), AddItemActivity.class);
-                    intent.putExtra("key", holder.title.getText());
+                    intent.putExtra(context.getString(R.string.COLLECTION_ITEM_EDIT), holder.title.getText());
                     intent.putExtra(String.valueOf(R.string.EDIT_ITEM_KEY), galleryList.get(position));
-                    intent.putExtra("position",position);
-                    context.startActivityForResult(intent, 202);
+                    intent.putExtra(context.getString(R.string.POSITION_KEY), position);
+                    context.startActivityForResult(intent, EDIT_ITEM_CODE);
                 }
             });
         }
@@ -70,15 +73,15 @@ public class CollectionItemAdapter extends RecyclerView.Adapter<CollectionItemAd
         return galleryList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
         private ImageView img;
 
-        public ViewHolder(View view) {
+        ViewHolder(View view) {
             super(view);
 
-            title = (TextView) view.findViewById(R.id.title);
-            img = (ImageView) view.findViewById(R.id.img);
+            title = view.findViewById(R.id.title);
+            img = view.findViewById(R.id.img);
         }
     }
 }
