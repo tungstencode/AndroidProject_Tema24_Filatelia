@@ -27,17 +27,19 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     public static ArrayList<CollectionItem> collectionItems = new ArrayList<>();
 
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        final View view = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = view.findViewById(R.id.recycler_view_gallery);
-        SharedPreferences sharedPreferences = view.getContext().getSharedPreferences(getString(R.string.SETTINGS_KEY), Context.MODE_PRIVATE);
-
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(view.getContext(), sharedPreferences.getInt(getString(R.string.ITEM_PER_COLLUMN_KEY),1)+1);
+        final SharedPreferences sharedPreferences = view.getContext().getSharedPreferences(getString(R.string.SETTINGS_KEY), Context.MODE_PRIVATE);
+        final ArrayList<CollectionItem> createLists = prepareData(view);
+        final CollectionItemAdapter adapter = new CollectionItemAdapter(this, createLists);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(view.getContext(), sharedPreferences.getInt(getString(R.string.ITEM_PER_COLLUMN_KEY), 1) + 1);
         recyclerView.setLayoutManager(layoutManager);
-        ArrayList<CollectionItem> createLists = prepareData(view);
-        CollectionItemAdapter adapter = new CollectionItemAdapter(this, createLists);
         recyclerView.setAdapter(adapter);
         return view;
     }
@@ -64,9 +66,9 @@ public class HomeFragment extends Fragment {
                 && data != null) {
             CollectionItem collectionItem = data.getParcelableExtra(getString(R.string.COLLETION_ITEM_KEY));
             if (collectionItem != null) {
-                int position=data.getIntExtra(getString(R.string.POSITION_KEY),-1);
-                if(position!=-1){
-                    collectionItems.remove(position-1);
+                int position = data.getIntExtra(getString(R.string.POSITION_KEY), -1);
+                if (position != -1) {
+                    collectionItems.remove(position - 1);
                     collectionItems.add(collectionItem);
                 }
                 recyclerView.getAdapter().notifyDataSetChanged();

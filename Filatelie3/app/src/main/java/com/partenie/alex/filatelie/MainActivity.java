@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int RC_CAMERA_AND_STORAGE = 100;
     public static String USER_PREFERENCE = "user login";
     public static SharedPreferences sharedpreferences;
+    public static HomeFragment preLoadedHomeFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.add_item);
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        preLoadedHomeFragment=new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, preLoadedHomeFragment).commit();
         requirePerm();
         sharedpreferences = getSharedPreferences(USER_PREFERENCE, Context.MODE_PRIVATE);
         if (!sharedpreferences.getBoolean(getString(R.string.LOGIN_KEY), false)) {

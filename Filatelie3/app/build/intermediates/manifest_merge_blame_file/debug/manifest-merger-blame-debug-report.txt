@@ -41,91 +41,90 @@
 23-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:15:9-54
 24        android:supportsRtl="true"
 24-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:16:9-35
-25        android:testOnly="true"
-26        android:theme="@style/AppTheme" >
-26-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:17:9-40
-27        <activity
-27-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:18:9-20:69
-28            android:name="com.partenie.alex.filatelie.ui.login.LoginActivity"
-28-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:19:13-51
-29            android:label="@string/title_activity_login" />
-29-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:20:13-57
-30        <activity android:name="com.partenie.alex.filatelie.AddItemActivity" />
-30-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:21:9-53
-30-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:21:19-50
-31        <activity android:name="com.partenie.alex.filatelie.MainActivity" >
-31-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:22:9-28:20
-31-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:22:19-47
-32            <intent-filter>
-32-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:23:13-27:29
-33                <action android:name="android.intent.action.MAIN" />
-33-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:24:17-69
-33-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:24:25-66
-34
-35                <category android:name="android.intent.category.LAUNCHER" />
-35-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:26:17-77
-35-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:26:27-74
-36            </intent-filter>
-37        </activity>
-38        <activity
-38-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:23:9-27:75
-39            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-39-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:24:13-93
-40            android:excludeFromRecents="true"
-40-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:25:13-46
-41            android:exported="false"
-41-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:26:13-37
-42            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-42-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:27:13-72
-43        <!--
-44            Service handling Google Sign-In user revocation. For apps that do not integrate with
-45            Google Sign-In, this service will never be started.
-46        -->
-47        <service
-47-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:33:9-36:110
-48            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-48-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:34:13-89
-49            android:exported="true"
-49-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:35:13-36
-50            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
-50-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:36:13-107
-51
-52        <activity
-52-->[pub.devrel:easypermissions:3.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\e0c9ef1d3c5f305cec7a9ab000576efa\easypermissions-3.0.0\AndroidManifest.xml:12:9-16:66
-53            android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity"
-53-->[pub.devrel:easypermissions:3.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\e0c9ef1d3c5f305cec7a9ab000576efa\easypermissions-3.0.0\AndroidManifest.xml:13:13-86
-54            android:exported="false"
-54-->[pub.devrel:easypermissions:3.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\e0c9ef1d3c5f305cec7a9ab000576efa\easypermissions-3.0.0\AndroidManifest.xml:14:13-37
-55            android:label=""
-55-->[pub.devrel:easypermissions:3.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\e0c9ef1d3c5f305cec7a9ab000576efa\easypermissions-3.0.0\AndroidManifest.xml:15:13-29
-56            android:theme="@style/EasyPermissions.Transparent" />
-56-->[pub.devrel:easypermissions:3.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\e0c9ef1d3c5f305cec7a9ab000576efa\easypermissions-3.0.0\AndroidManifest.xml:16:13-63
-57        <activity
-57-->[com.google.android.gms:play-services-base:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\bd8a4935a17dde33dc1d62d4f9914d3b\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-58            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-58-->[com.google.android.gms:play-services-base:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\bd8a4935a17dde33dc1d62d4f9914d3b\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-59            android:exported="false"
-59-->[com.google.android.gms:play-services-base:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\bd8a4935a17dde33dc1d62d4f9914d3b\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-60            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-60-->[com.google.android.gms:play-services-base:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\bd8a4935a17dde33dc1d62d4f9914d3b\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-61
-62        <meta-data
-62-->[com.google.android.gms:play-services-basement:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\0b054687a1438564fc3fbcef61c54093\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-63            android:name="com.google.android.gms.version"
-63-->[com.google.android.gms:play-services-basement:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\0b054687a1438564fc3fbcef61c54093\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-64            android:value="@integer/google_play_services_version" />
-64-->[com.google.android.gms:play-services-basement:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\0b054687a1438564fc3fbcef61c54093\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-65
-66        <provider
-66-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Software\.gradle\caches\transforms-2\files-2.1\55580b0ab45b69249933074462ab11c2\lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
-67            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-67-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Software\.gradle\caches\transforms-2\files-2.1\55580b0ab45b69249933074462ab11c2\lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
-68            android:authorities="com.partenie.alex.filatelie.lifecycle-process"
-68-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Software\.gradle\caches\transforms-2\files-2.1\55580b0ab45b69249933074462ab11c2\lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
-69            android:exported="false"
-69-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Software\.gradle\caches\transforms-2\files-2.1\55580b0ab45b69249933074462ab11c2\lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
-70            android:multiprocess="true" />
-70-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Software\.gradle\caches\transforms-2\files-2.1\55580b0ab45b69249933074462ab11c2\lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
-71    </application>
-72
-73</manifest>
+25        android:theme="@style/AppTheme" >
+25-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:17:9-40
+26        <activity
+26-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:18:9-20:69
+27            android:name="com.partenie.alex.filatelie.ui.login.LoginActivity"
+27-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:19:13-51
+28            android:label="@string/title_activity_login" />
+28-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:20:13-57
+29        <activity android:name="com.partenie.alex.filatelie.AddItemActivity" />
+29-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:21:9-53
+29-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:21:19-50
+30        <activity android:name="com.partenie.alex.filatelie.MainActivity" >
+30-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:22:9-28:20
+30-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:22:19-47
+31            <intent-filter>
+31-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:23:13-27:29
+32                <action android:name="android.intent.action.MAIN" />
+32-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:24:17-69
+32-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:24:25-66
+33
+34                <category android:name="android.intent.category.LAUNCHER" />
+34-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:26:17-77
+34-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:26:27-74
+35            </intent-filter>
+36        </activity>
+37        <activity
+37-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:23:9-27:75
+38            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+38-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:24:13-93
+39            android:excludeFromRecents="true"
+39-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:25:13-46
+40            android:exported="false"
+40-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:26:13-37
+41            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+41-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:27:13-72
+42        <!--
+43            Service handling Google Sign-In user revocation. For apps that do not integrate with
+44            Google Sign-In, this service will never be started.
+45        -->
+46        <service
+46-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:33:9-36:110
+47            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+47-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:34:13-89
+48            android:exported="true"
+48-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:35:13-36
+49            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+49-->[com.google.android.gms:play-services-auth:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\5e94c6fcc324962296ff7ff911b6a055\play-services-auth-17.0.0\AndroidManifest.xml:36:13-107
+50
+51        <activity
+51-->[pub.devrel:easypermissions:3.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\e0c9ef1d3c5f305cec7a9ab000576efa\easypermissions-3.0.0\AndroidManifest.xml:12:9-16:66
+52            android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity"
+52-->[pub.devrel:easypermissions:3.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\e0c9ef1d3c5f305cec7a9ab000576efa\easypermissions-3.0.0\AndroidManifest.xml:13:13-86
+53            android:exported="false"
+53-->[pub.devrel:easypermissions:3.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\e0c9ef1d3c5f305cec7a9ab000576efa\easypermissions-3.0.0\AndroidManifest.xml:14:13-37
+54            android:label=""
+54-->[pub.devrel:easypermissions:3.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\e0c9ef1d3c5f305cec7a9ab000576efa\easypermissions-3.0.0\AndroidManifest.xml:15:13-29
+55            android:theme="@style/EasyPermissions.Transparent" />
+55-->[pub.devrel:easypermissions:3.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\e0c9ef1d3c5f305cec7a9ab000576efa\easypermissions-3.0.0\AndroidManifest.xml:16:13-63
+56        <activity
+56-->[com.google.android.gms:play-services-base:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\bd8a4935a17dde33dc1d62d4f9914d3b\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+57            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+57-->[com.google.android.gms:play-services-base:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\bd8a4935a17dde33dc1d62d4f9914d3b\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+58            android:exported="false"
+58-->[com.google.android.gms:play-services-base:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\bd8a4935a17dde33dc1d62d4f9914d3b\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+59            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+59-->[com.google.android.gms:play-services-base:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\bd8a4935a17dde33dc1d62d4f9914d3b\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+60
+61        <meta-data
+61-->[com.google.android.gms:play-services-basement:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\0b054687a1438564fc3fbcef61c54093\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+62            android:name="com.google.android.gms.version"
+62-->[com.google.android.gms:play-services-basement:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\0b054687a1438564fc3fbcef61c54093\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+63            android:value="@integer/google_play_services_version" />
+63-->[com.google.android.gms:play-services-basement:17.0.0] D:\Software\.gradle\caches\transforms-2\files-2.1\0b054687a1438564fc3fbcef61c54093\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+64
+65        <provider
+65-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Software\.gradle\caches\transforms-2\files-2.1\55580b0ab45b69249933074462ab11c2\lifecycle-process-2.1.0\AndroidManifest.xml:23:9-27:43
+66            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+66-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Software\.gradle\caches\transforms-2\files-2.1\55580b0ab45b69249933074462ab11c2\lifecycle-process-2.1.0\AndroidManifest.xml:24:13-79
+67            android:authorities="com.partenie.alex.filatelie.lifecycle-process"
+67-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Software\.gradle\caches\transforms-2\files-2.1\55580b0ab45b69249933074462ab11c2\lifecycle-process-2.1.0\AndroidManifest.xml:25:13-69
+68            android:exported="false"
+68-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Software\.gradle\caches\transforms-2\files-2.1\55580b0ab45b69249933074462ab11c2\lifecycle-process-2.1.0\AndroidManifest.xml:26:13-37
+69            android:multiprocess="true" />
+69-->[androidx.lifecycle:lifecycle-process:2.1.0] D:\Software\.gradle\caches\transforms-2\files-2.1\55580b0ab45b69249933074462ab11c2\lifecycle-process-2.1.0\AndroidManifest.xml:27:13-40
+70    </application>
+71
+72</manifest>
