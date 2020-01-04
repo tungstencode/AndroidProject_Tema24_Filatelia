@@ -14,7 +14,7 @@
             android:id="@+id/align"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,17 +37,17 @@
 
                     <ImageView
                         android:id="@+id/img"
-                        android:scaleX="0.97"
-                        android:scaleY="0.97"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
+                        android:contentDescription="@string/taken_photo"
+                        android:scaleX="0.97"
+                        android:scaleY="0.97"
                         app:srcCompat="@drawable/ic_add_black_24dp"
                         tools:layout_conversion_absoluteHeight="24dp"
                         tools:layout_conversion_absoluteWidth="24dp"
                         tools:layout_editor_absoluteX="63dp"
-                        tools:layout_editor_absoluteY="79dp"
-                        android:contentDescription="@string/taken_photo" />
+                        tools:layout_editor_absoluteY="79dp" />
 
                 </LinearLayout>
 
@@ -130,6 +130,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/get_location_info" />
+
+                <Button
+                    android:id="@+id/delete_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:visibility="gone"
+                    android:text="@string/delete_button_string"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/country_info" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

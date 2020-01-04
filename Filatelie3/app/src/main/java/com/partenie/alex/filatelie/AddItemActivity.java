@@ -2,6 +2,10 @@ package com.partenie.alex.filatelie;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import android.annotation.SuppressLint;
 import android.util.Log;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -31,6 +35,8 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.partenie.alex.filatelie.database.model.CollectionItem;
+import com.partenie.alex.filatelie.database.service.CollectionItemService;
+import com.partenie.alex.filatelie.util.CollectionItemAdapter;
 import com.partenie.alex.filatelie.util.Country;
 
 import java.io.BufferedReader;
@@ -50,7 +56,7 @@ public class AddItemActivity extends AppCompatActivity {
     private static final String JPEG_FILE_PREFIX = "filatelie_";
     private static final String JPEG_FILE_SUFFIX = ".jpg";
     private static final String DATE_FORMAT = "dd-MM-yyyy";
-    private static final int CAMERA_CODE=100;
+    private static final int CAMERA_CODE = 100;
     Intent intent;
     EditText itemName;
     EditText itemDescription;
@@ -68,6 +74,7 @@ public class AddItemActivity extends AppCompatActivity {
     CollectionItem collectionItem = null;
     Button getLocationInfo;
     TextView countryInfo;
+    Button deleteItem;
     String photoFolder;
 
 
@@ -110,11 +117,28 @@ public class AddItemActivity extends AppCompatActivity {
         countryInfo = findViewById(R.id.country_info);
         preview = findViewById(R.id.img);
         getLocationInfo = findViewById(R.id.get_location_info);
+        deleteItem = findViewById(R.id.delete_item);
         getLocationInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 countryInfo.setVisibility(View.VISIBLE);
                 new JsonTask().execute(getString(R.string.API_BODY) + itemLocation.getText().toString());
+            }
+        });
+        deleteItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent.putExtra(getString(R.string.COLLETION_ITEM_KEY), collectionItem);
+                setResult(CollectionItemAdapter.RESULT_DELETE, intent);
+                if (intent.getStringExtra(getString(R.string.COLLECTION_ITEM_EDIT)) == null) {
+                    if (image != null) {
+                        if (image.isFile() && image.exists()) {
+                            image.delete();
+                        }
+                    }
+                }
+
+                finish();
             }
         });
 
@@ -134,9 +158,11 @@ public class AddItemActivity extends AppCompatActivity {
             this.getSupportActionBar().setTitle("Edit " + intent.getStringExtra(getString(R.string.COLLECTION_ITEM_EDIT)));
             collectionItem = intent.getParcelableExtra(String.valueOf(R.string.EDIT_ITEM_KEY));
             getLocationInfo.setVisibility(View.VISIBLE);
+            deleteItem.setVisibility(View.VISIBLE);
             updateUI();
         }
     }
+
 
     private CollectionItem createFromView() {
         if (validate()) {
@@ -158,10 +184,10 @@ public class AddItemActivity extends AppCompatActivity {
             }
             String historicLocation = itemLocation.getText().toString();
             String type = typeSpinner.getSelectedItem().toString();
-            if(collectionItem!=null){
-                Log.d("itemFromCreateFromView","id: "+collectionItem.id);
+            if (collectionItem != null) {
+                Log.d("itemFromCreateFromView", "id: " + collectionItem.id);
                 return new CollectionItem(collectionItem.id, imgLocation, name, description, price, manufacturedDate, historicLocation, type);
-            }else{
+            } else {
                 return new CollectionItem(imgLocation, name, description, price, manufacturedDate, historicLocation, type);
             }
         }

@@ -1232,6 +1232,7 @@ id customPanel
 id dark
 id decor_content_parent
 id default_activity_button
+id delete_item
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1591,6 +1592,7 @@ string common_signin_button_text
 string common_signin_button_text_long
 string creator_name
 string default_web_client_id
+string delete_button_string
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string google_profile_picture

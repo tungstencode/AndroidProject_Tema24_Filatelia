@@ -674,6 +674,7 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="creator_name">Partenie Alex\nGrupa 1081, Seria D</string>
     <string name="default_web_client_id">1</string>
+    <string name="delete_button_string">Delete</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
     <string name="google_profile_picture">Google profile picture</string>

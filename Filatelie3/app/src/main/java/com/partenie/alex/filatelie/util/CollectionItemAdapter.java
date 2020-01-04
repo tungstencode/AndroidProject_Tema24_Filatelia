@@ -24,6 +24,8 @@ public class CollectionItemAdapter extends RecyclerView.Adapter<CollectionItemAd
     private HomeFragment context;
     public static final int ADD_ITEM_CODE = 303;
     public static final int EDIT_ITEM_CODE = 202;
+    public static final int RESULT_DELETE = 204;
+
 
 
     public CollectionItemAdapter(HomeFragment context, ArrayList<CollectionItem> galleryList) {
