@@ -2,7 +2,7 @@ package com.partenie.alex.filatelie;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.util.Log;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -30,7 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.partenie.alex.filatelie.util.CollectionItem;
+import com.partenie.alex.filatelie.database.model.CollectionItem;
 import com.partenie.alex.filatelie.util.Country;
 
 import java.io.BufferedReader;
@@ -140,7 +140,6 @@ public class AddItemActivity extends AppCompatActivity {
 
     private CollectionItem createFromView() {
         if (validate()) {
-            Integer id = new Random().nextInt();
             String imgLocation;
             if (image != null) {
                 imgLocation = image.getAbsolutePath();
@@ -159,7 +158,12 @@ public class AddItemActivity extends AppCompatActivity {
             }
             String historicLocation = itemLocation.getText().toString();
             String type = typeSpinner.getSelectedItem().toString();
-            return new CollectionItem(id, imgLocation, name, description, price, manufacturedDate, historicLocation, type);
+            if(collectionItem!=null){
+                Log.d("itemFromCreateFromView","id: "+collectionItem.id);
+                return new CollectionItem(collectionItem.id, imgLocation, name, description, price, manufacturedDate, historicLocation, type);
+            }else{
+                return new CollectionItem(imgLocation, name, description, price, manufacturedDate, historicLocation, type);
+            }
         }
         return null;
     }

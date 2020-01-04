@@ -15,14 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.partenie.alex.filatelie.AddItemActivity;
 import com.partenie.alex.filatelie.HomeFragment;
 import com.partenie.alex.filatelie.R;
+import com.partenie.alex.filatelie.database.model.CollectionItem;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
-import java.util.concurrent.FutureTask;
-import java.util.concurrent.RunnableFuture;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 public class CollectionItemAdapter extends RecyclerView.Adapter<CollectionItemAdapter.ViewHolder> {
     private ArrayList<CollectionItem> galleryList;
@@ -59,9 +54,14 @@ public class CollectionItemAdapter extends RecyclerView.Adapter<CollectionItemAd
         } else {
             holder.title.setText(galleryList.get(position).getName());
             holder.img.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            BitmapFactory.Options options=new BitmapFactory.Options();
-            options.inSampleSize=10;
-            Bitmap bitmap = BitmapFactory.decodeFile(galleryList.get(position).getImgLocation(),options);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 10;
+            Bitmap bitmap = null;
+            try {
+                bitmap = BitmapFactory.decodeFile(galleryList.get(position).getImgLocation(), options);
+            } catch (Exception e) {
+
+            }
             holder.img.setImageBitmap(bitmap);
             holder.img.setOnClickListener(new View.OnClickListener() {
                 @Override
