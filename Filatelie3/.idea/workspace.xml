@@ -82,6 +82,25 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/HomeFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="92" column="34" lean-forward="true" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2086#2118#0" expanded="true" />
+                <element signature="e#3433#3763#0" expanded="true" />
+                <element signature="e#3650#3678#0" expanded="true" />
+                <element signature="e#3762#3763#0" expanded="true" />
+                <element signature="e#4584#4934#0" expanded="true" />
+                <element signature="e#4813#4841#0" expanded="true" />
+                <element signature="e#4933#4934#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="134">
@@ -152,7 +171,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/database/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/database/model/CollectionItem.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/HomeFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/util/CollectionItemAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/AddItemActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" />
@@ -164,6 +182,7 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/ProfileFragment.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/HomeFragment.java" />
       </list>
     </option>
   </component>
@@ -488,17 +507,17 @@
       <window_info id="Capture Tool" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.55369127" weight="0.4036313" />
-      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49261746" weight="0.3114525" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="1" sideWeight="0.49127516" visible="true" weight="0.3114525" />
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.49932885" weight="0.32960895" />
       <window_info anchor="bottom" id="Android Profiler" order="3" sideWeight="0.49932885" weight="0.32960895" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.32960895" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.32960895" />
-      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.47651008" side_tool="true" visible="true" weight="0.27793297" />
+      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.5087248" side_tool="true" visible="true" weight="0.3114525" />
       <window_info anchor="bottom" id="Flutter Performance" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.52348995" visible="true" weight="0.27793297" />
+      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.5228188" weight="0.27793297" />
       <window_info anchor="bottom" id="Find" order="10" sideWeight="0.49731544" weight="0.32960895" />
-      <window_info active="true" anchor="right" id="Assistant" visible="true" weight="0.3295302" />
+      <window_info anchor="right" id="Assistant" weight="0.34026846" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.3295302" />
@@ -815,26 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/AddItemActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="108" column="19" selection-start-line="108" selection-start-column="8" selection-end-line="108" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/HomeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="45" column="147" selection-start-line="45" selection-start-column="147" selection-end-line="45" selection-end-column="147" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/SettingsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -886,10 +885,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/AddItemActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="303" column="92" lean-forward="true" selection-start-line="303" selection-start-column="92" selection-end-line="303" selection-end-column="92" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3665#3696#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="92" column="34" lean-forward="true" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2086#2118#0" expanded="true" />
+            <element signature="e#3433#3763#0" expanded="true" />
+            <element signature="e#3650#3678#0" expanded="true" />
+            <element signature="e#3762#3763#0" expanded="true" />
+            <element signature="e#4584#4934#0" expanded="true" />
+            <element signature="e#4813#4841#0" expanded="true" />
+            <element signature="e#4933#4934#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

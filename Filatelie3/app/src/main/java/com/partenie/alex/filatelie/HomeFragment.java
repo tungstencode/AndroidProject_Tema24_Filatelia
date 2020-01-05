@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,10 +20,16 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.partenie.alex.filatelie.database.model.CollectionItem;
 import com.partenie.alex.filatelie.database.service.CollectionItemService;
 import com.partenie.alex.filatelie.util.CollectionItemAdapter;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -31,12 +38,14 @@ import static android.app.Activity.RESULT_OK;
 
 public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
+    private StorageReference mStorageRef;
     public static ArrayList<CollectionItem> collectionItems = new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
+        mStorageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://everse.appspot.com");
         initComp(view);
         return view;
     }
@@ -65,7 +74,17 @@ public class HomeFragment extends Fragment {
                 && data != null) {
             CollectionItem collectionItem = data.getParcelableExtra(getString(R.string.COLLETION_ITEM_KEY));
             if (collectionItem != null) {
+                Uri file = Uri.fromFile(new File(collectionItem.imgLocation));
+                StorageReference riversRef = mStorageRef.child(collectionItem.name+collectionItem.id);
+                riversRef.putFile(file)
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception exception) {
+                                Toast.makeText(getView().getContext(), getString(R.string.imgdidnt), Toast.LENGTH_SHORT).show();
+                            }
+                        });
                 insertItemIntoDatabase(collectionItem, getView());
+
                 refreshFragment();
             }
         }
@@ -76,6 +95,15 @@ public class HomeFragment extends Fragment {
             if (collectionItem != null) {
                 int position = data.getIntExtra(getString(R.string.POSITION_KEY), -1);
                 if (position != -1) {
+                    Uri file = Uri.fromFile(new File(collectionItem.imgLocation));
+                    StorageReference riversRef = mStorageRef.child(collectionItem.name+collectionItem.id);
+                    riversRef.putFile(file)
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception exception) {
+                                    Toast.makeText(getView().getContext(), getString(R.string.imgdidnt), Toast.LENGTH_SHORT).show();
+                                }
+                            });
                     updateItemFromDatabase(collectionItem, getView());
                 }
                 refreshFragment();

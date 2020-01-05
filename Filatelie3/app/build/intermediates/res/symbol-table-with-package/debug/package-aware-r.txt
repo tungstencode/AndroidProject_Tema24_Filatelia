@@ -1616,6 +1616,7 @@ string google_profile_picture
 string google_storage_bucket
 string help
 string hide_bottom_view_on_scroll_behavior
+string imgdidnt
 string invalid_password
 string invalid_username
 string items_per_collumn
