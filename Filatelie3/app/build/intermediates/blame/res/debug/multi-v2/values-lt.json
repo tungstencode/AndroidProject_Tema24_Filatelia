@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Facultate\\Anul III\\Semestrul I\\DAM\\Filatelie3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lt\\values-lt.xml",
+            "outputFile": "D:\\Facultate\\Anul III\\Semestrul I\\DAM\\backup\\Filatelie3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lt\\values-lt.xml",
             "map": [
                 {
                     "source": "D:\\Software\\.gradle\\caches\\transforms-2\\files-2.1\\87208d252f1f7f0348a7bace28aa4297\\jetified-play-services-basement-17.0.0\\res\\values-lt\\values.xml",

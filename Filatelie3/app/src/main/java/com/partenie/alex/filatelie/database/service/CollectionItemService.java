@@ -27,6 +27,37 @@ public class CollectionItemService {
         }
     }
 
+    public static class GetType
+            extends AsyncTask<String, Void, List<CollectionItem>> {
+
+        public GetType(Context context) {
+            collectionItemDao = DatabaseManager
+                    .getInstance(context)
+                    .getCollectionItemDao();
+        }
+
+        @Override
+        protected List<CollectionItem> doInBackground(String... strings) {
+            return collectionItemDao.getType(strings[0]);
+        }
+    }
+
+    public static class GetOver
+            extends AsyncTask<Float, Void, List<CollectionItem>> {
+
+        public GetOver(Context context) {
+            collectionItemDao = DatabaseManager
+                    .getInstance(context)
+                    .getCollectionItemDao();
+        }
+
+        @Override
+        protected List<CollectionItem> doInBackground(Float... floats) {
+            return collectionItemDao.getOver(floats[0]);
+        }
+    }
+
+
     public static class Insert extends
             AsyncTask<CollectionItem, Void, CollectionItem> {
         public Insert(Context context) {

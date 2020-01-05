@@ -16,6 +16,13 @@ public interface CollectionItemDao {
     @Query("select * from collectionItems")
     List<CollectionItem> getAll();
 
+    @Query("select * from collectionItems where type LIKE :tip ")
+    List<CollectionItem> getType(String tip);
+
+    @Query("select * from collectionItems where price > :value ")
+    List<CollectionItem> getOver(Float value);
+
+
     @Insert
     long insert(CollectionItem collectionItem);
 

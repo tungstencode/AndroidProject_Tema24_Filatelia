@@ -1,5 +1,6 @@
 package com.partenie.alex.filatelie;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,11 +29,18 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.Task;
+import com.partenie.alex.filatelie.database.model.CollectionItem;
+import com.partenie.alex.filatelie.database.service.CollectionItemService;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.List;
 
 public class ProfileFragment extends Fragment {
     private GoogleApiClient mGoogleApiClient;
@@ -43,18 +52,34 @@ public class ProfileFragment extends Fragment {
     private Button logOut;
     private ImageView profileImage;
     private TextView nrOfStamps;
-    private static final int GOOGLE_CODE=505;
+    private TextView nrOfMonezi;
+    private TextView nrOfFDC;
+    private TextView nrOver100;
+    private static final int GOOGLE_CODE = 505;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        nrOfStamps=view.findViewById(R.id.nr_of_stamps);
-        if(HomeFragment.collectionItems!=null){
+        nrOfStamps = view.findViewById(R.id.nr_of_stamps);
+        nrOfMonezi = view.findViewById(R.id.nr_of_monezi);
+        nrOfFDC = view.findViewById(R.id.nr_of_fdc);
+        nrOver100 = view.findViewById(R.id.nr_over_100);
+        if (HomeFragment.collectionItems != null) {
             nrOfStamps.setText(String.valueOf(HomeFragment.collectionItems.size()));
-        }else{
+            nrOfMonezi.setText(getString(R.string.zero));
+            nrOfFDC.setText(getString(R.string.zero));
+            nrOver100.setText(getString(R.string.zero));
+            getTypeFromDatabase("Moneda", view, nrOfMonezi);
+            getTypeFromDatabase("FDC", view, nrOfFDC);
+            getOverValue(100f, view, nrOver100);
+
+        } else {
             nrOfStamps.setText(getString(R.string.zero));
+            nrOver100.setText(getString(R.string.zero));
+            nrOfMonezi.setText(getString(R.string.zero));
+            nrOfFDC.setText(getString(R.string.zero));
         }
 
         profileImage = view.findViewById(R.id.profile_image);
@@ -182,5 +207,55 @@ public class ProfileFragment extends Fragment {
 
     }
 
+    @SuppressLint("StaticFieldLeak")
+    private void getTypeFromDatabase(final String tip, final View view, final TextView tv) {
+        new CollectionItemService.GetType(view.getContext()) {
+            @Override
+            protected void onPostExecute(
+                    List<CollectionItem> results) {
+                if (results != null) {
+                    tv.setText(String.valueOf(results.size()));
+                    try {
+                        File file = new File(Environment.getExternalStorageDirectory()+"/type"+tip+".txt");
+                        if (!file.exists()) {
+                            file.createNewFile();
+                        }
+                        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+                        BufferedWriter bw = new BufferedWriter(fw);
+                        bw.write(results.toString());
+                        bw.close();
 
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.execute(tip);
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private void getOverValue(final Float value, final View view, final TextView tv) {
+        new CollectionItemService.GetOver(view.getContext()) {
+            @Override
+            protected void onPostExecute(
+                    List<CollectionItem> results) {
+                if (results != null) {
+                    tv.setText(String.valueOf(results.size()));
+                    try {
+                        File file = new File(Environment.getExternalStorageDirectory()+"/over"+value+".txt");
+                        if (!file.exists()) {
+                            file.createNewFile();
+                        }
+                        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+                        BufferedWriter bw = new BufferedWriter(fw);
+                        bw.write(results.toString());
+                        bw.close();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }.execute(value);
+    }
 }

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Facultate\\Anul III\\Semestrul I\\DAM\\Filatelie3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ms\\values-ms.xml",
+            "outputFile": "D:\\Facultate\\Anul III\\Semestrul I\\DAM\\backup\\Filatelie3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ms\\values-ms.xml",
             "map": [
                 {
                     "source": "D:\\Software\\.gradle\\caches\\transforms-2\\files-2.1\\beb8e9c7a6c362ad284e361d4f0c8635\\jetified-navigation-ui-2.0.0\\res\\values-ms\\values-ms.xml",

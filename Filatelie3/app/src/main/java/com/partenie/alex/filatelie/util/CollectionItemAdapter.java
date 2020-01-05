@@ -1,5 +1,8 @@
 package com.partenie.alex.filatelie.util;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,6 +19,7 @@ import com.partenie.alex.filatelie.AddItemActivity;
 import com.partenie.alex.filatelie.HomeFragment;
 import com.partenie.alex.filatelie.R;
 import com.partenie.alex.filatelie.database.model.CollectionItem;
+import com.partenie.alex.filatelie.database.service.CollectionItemService;
 
 import java.util.ArrayList;
 
@@ -75,7 +79,44 @@ public class CollectionItemAdapter extends RecyclerView.Adapter<CollectionItemAd
                     context.startActivityForResult(intent, EDIT_ITEM_CODE);
                 }
             });
+
+            holder.img.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context.getContext());
+                    alertDialogBuilder.setTitle("Delete");
+                    alertDialogBuilder.setMessage("Are you sure you want to delete this item?");
+                    alertDialogBuilder.setCancelable(true);
+
+                    alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            deleteItemFromDatabase(galleryList.get(position),context.getView());
+                        }
+                    });
+
+                    alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                    return false;
+                }
+            });
         }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private void deleteItemFromDatabase(CollectionItem collectionItem, final View view) {
+        new CollectionItemService.Delete(view.getContext()) {
+            @Override
+            protected void onPostExecute(Integer integer) {
+                super.onPostExecute(integer);
+            }
+        }.execute(collectionItem);
     }
 
     @Override

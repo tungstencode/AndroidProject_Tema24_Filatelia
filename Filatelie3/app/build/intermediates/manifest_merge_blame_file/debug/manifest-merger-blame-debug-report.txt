@@ -6,65 +6,65 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml
+8-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml
+9-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-11-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:5:5-79
-11-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:5:22-76
+11-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:5:5-79
+11-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:5:22-76
 12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-12-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:6:5-81
-12-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:6:22-78
+12-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:6:5-81
+12-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:6:22-78
 13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-13-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:7:5-80
-13-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:7:22-77
+13-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:7:5-80
+13-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:7:22-77
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:8:5-67
-14-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:8:22-64
+14-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:8:5-67
+14-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:8:22-64
 15    <uses-permission android:name="android.permission.CAMERA" />
-15-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:9:5-65
-15-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:9:22-62
+15-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:9:5-65
+15-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:9:22-62
 16
 17    <application
-17-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:11:5-29:19
+17-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:11:5-29:19
 18        android:allowBackup="true"
-18-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:12:9-35
+18-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:12:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 19-->[androidx.core:core:1.1.0] D:\Software\.gradle\caches\transforms-2\files-2.1\f01b27bb220ecb79298884ef36a7a2fb\core-1.1.0\AndroidManifest.xml:24:18-86
 20        android:debuggable="true"
 21        android:icon="@mipmap/ic_launcher"
-21-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:13:9-43
+21-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:13:9-43
 22        android:label="@string/app_name"
-22-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:14:9-41
+22-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:14:9-41
 23        android:roundIcon="@mipmap/ic_launcher_round"
-23-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:15:9-54
+23-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:15:9-54
 24        android:supportsRtl="true"
-24-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:16:9-35
+24-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:16:9-35
 25        android:testOnly="true"
 26        android:theme="@style/AppTheme" >
-26-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:17:9-40
+26-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:17:9-40
 27        <activity
-27-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:18:9-20:69
+27-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:18:9-20:69
 28            android:name="com.partenie.alex.filatelie.ui.login.LoginActivity"
-28-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:19:13-51
+28-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:19:13-51
 29            android:label="@string/title_activity_login" />
-29-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:20:13-57
+29-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:20:13-57
 30        <activity android:name="com.partenie.alex.filatelie.AddItemActivity" />
-30-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:21:9-53
-30-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:21:19-50
+30-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:21:9-53
+30-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:21:19-50
 31        <activity android:name="com.partenie.alex.filatelie.MainActivity" >
-31-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:22:9-28:20
-31-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:22:19-47
+31-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:22:9-28:20
+31-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:22:19-47
 32            <intent-filter>
-32-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:23:13-27:29
+32-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:23:13-27:29
 33                <action android:name="android.intent.action.MAIN" />
-33-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:24:17-69
-33-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:24:25-66
+33-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:24:17-69
+33-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:24:25-66
 34
 35                <category android:name="android.intent.category.LAUNCHER" />
-35-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:26:17-77
-35-->D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\AndroidManifest.xml:26:27-74
+35-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:26:17-77
+35-->D:\Facultate\Anul III\Semestrul I\DAM\backup\Filatelie3\app\src\main\AndroidManifest.xml:26:27-74
 36            </intent-filter>
 37        </activity>
 38        <activity

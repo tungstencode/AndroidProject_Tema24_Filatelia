@@ -1,7 +1,7 @@
-#Sat Jan 04 19:38:48 EET 2020
-base.0=D\:\\Facultate\\Anul III\\Semestrul I\\DAM\\Filatelie3\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+#Sun Jan 05 12:37:50 EET 2020
+base.0=D\:\\Facultate\\Anul III\\Semestrul I\\DAM\\backup\\Filatelie3\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=D\:\\Facultate\\Anul III\\Semestrul I\\DAM\\Filatelie3\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.1=D\:\\Facultate\\Anul III\\Semestrul I\\DAM\\backup\\Filatelie3\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex

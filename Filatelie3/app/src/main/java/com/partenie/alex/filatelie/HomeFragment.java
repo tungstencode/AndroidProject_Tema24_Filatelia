@@ -25,6 +25,7 @@ import com.partenie.alex.filatelie.util.CollectionItemAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -36,8 +37,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
-        getItemsFromDatabase(view);
-//        initComp(view);
+        initComp(view);
         return view;
     }
 
@@ -51,6 +51,11 @@ public class HomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getItemsFromDatabase(Objects.requireNonNull(getView()));
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

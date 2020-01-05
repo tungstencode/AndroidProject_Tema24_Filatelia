@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Facultate\\Anul III\\Semestrul I\\DAM\\Filatelie3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mk\\values-mk.xml",
+            "outputFile": "D:\\Facultate\\Anul III\\Semestrul I\\DAM\\backup\\Filatelie3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mk\\values-mk.xml",
             "map": [
                 {
                     "source": "D:\\Software\\.gradle\\caches\\transforms-2\\files-2.1\\bd8a4935a17dde33dc1d62d4f9914d3b\\play-services-base-17.0.0\\res\\values-mk\\values.xml",

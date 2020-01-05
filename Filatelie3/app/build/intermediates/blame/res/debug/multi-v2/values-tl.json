@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Facultate\\Anul III\\Semestrul I\\DAM\\Filatelie3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-tl\\values-tl.xml",
+            "outputFile": "D:\\Facultate\\Anul III\\Semestrul I\\DAM\\backup\\Filatelie3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-tl\\values-tl.xml",
             "map": [
                 {
                     "source": "D:\\Software\\.gradle\\caches\\transforms-2\\files-2.1\\d74b5b498b35fd5cb32d0a6997bb1d3d\\appcompat-1.1.0\\res\\values-tl\\values-tl.xml",

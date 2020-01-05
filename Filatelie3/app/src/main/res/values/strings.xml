@@ -70,4 +70,7 @@
     <string name="log_out_button_text">Log out</string>
     <string name="google_profile_picture">Google profile picture</string>
     <string name="delete_button_string">Delete</string>
+    <string name="number_of_coins">Number of coins</string>
+    <string name="number_of_fdc">Number of FDC</string>
+    <string name="over_100">Over 100</string>
 </resources>

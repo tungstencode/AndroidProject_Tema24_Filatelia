@@ -150,6 +150,9 @@ public class AddItemActivity extends AppCompatActivity {
             }
         });
         imageDirectory = new File(photoFolder);
+        if(!imageDirectory.isDirectory()){
+            imageDirectory.mkdirs();
+        }
 
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
@@ -256,6 +259,9 @@ public class AddItemActivity extends AppCompatActivity {
         StrictMode.setVmPolicy(builder.build());
 
         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        if(image == null){
+            Log.d("picture", "takePicture: xd");
+        }
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(image));
         startActivityForResult(cameraIntent, CAMERA_CODE);
     }
