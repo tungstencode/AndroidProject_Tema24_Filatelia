@@ -81,89 +81,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/HomeFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="45" column="147" selection-start-line="45" selection-start-column="147" selection-end-line="45" selection-end-column="147" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/ProfileFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="252" lean-forward="true" selection-start-line="252" selection-end-line="252" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2713#2737#0" expanded="true" />
-                <element signature="e#2768#2792#0" expanded="true" />
-                <element signature="e#2825#2849#0" expanded="true" />
-                <element signature="e#3123#3147#0" expanded="true" />
-                <element signature="e#3181#3205#0" expanded="true" />
-                <element signature="e#3236#3260#0" expanded="true" />
-                <element signature="e#7464#7496#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/SettingsFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="108" column="38" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
-              <folding>
-                <element signature="e#4318#4336#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-362">
-              <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/AddItemActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-333">
-              <caret line="108" column="19" selection-start-line="108" selection-start-column="8" selection-end-line="108" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5861#5892#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+            <state relative-caret-position="134">
+              <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -193,6 +115,7 @@
       <find>collectionItem</find>
       <find>createfromview</find>
       <find>log</find>
+      <find>default_web_client_id</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -215,7 +138,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/util/JsonTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/border.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/listview.xml" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/util/Country.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_help.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/collection_item_layout.xml" />
@@ -225,7 +147,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_search.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/util/DataConverter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/database/DatabaseManager.java" />
@@ -237,13 +158,17 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/database/dao/CollectionItemDao.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/database/service/CollectionItemService.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/../backup/Filatelie3/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/build/generated/res/google-services/debug/values/values.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/ProfileFragment.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="161" />
+    <option name="x" value="160" />
     <option name="y" value="15" />
     <option name="width" value="1045" />
     <option name="height" value="1050" />
@@ -254,41 +179,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Filatelie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Filatelie3" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="Filatelie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Filatelie3" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="Filatelie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Filatelie3" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="Filatelie" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="Filatelie" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
             </path>
             <path>
               <item name="Filatelie" type="1abcf292:AndroidViewProjectNode" />
@@ -333,6 +229,24 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Filatelie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Filatelie3" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Filatelie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Filatelie3" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -359,6 +273,7 @@
       <recent name="com.partenie.alex.filatelie" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app" />
       <recent name="D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\res\" />
       <recent name="D:\Facultate\Anul III\Semestrul I\DAM\Filatelie3\app\src\main\res\mipmap-xxxhdpi" />
     </key>
@@ -564,7 +479,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.15973154" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.1590604" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
@@ -572,17 +487,18 @@
       <window_info id="Resources Explorer" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.55503356" weight="0.4036313" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="1" sideWeight="0.49530202" visible="true" weight="0.3114525" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.55369127" weight="0.4036313" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.49261746" weight="0.3114525" />
       <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.49932885" weight="0.32960895" />
       <window_info anchor="bottom" id="Android Profiler" order="3" sideWeight="0.49932885" weight="0.32960895" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.32960895" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.32960895" />
-      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.504698" side_tool="true" visible="true" weight="0.3114525" />
+      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.47651008" side_tool="true" visible="true" weight="0.27793297" />
       <window_info anchor="bottom" id="Flutter Performance" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.52684563" weight="0.3282123" />
-      <window_info anchor="bottom" id="Find" order="10" sideWeight="0.4986577" weight="0.32960895" />
+      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.52348995" visible="true" weight="0.27793297" />
+      <window_info anchor="bottom" id="Find" order="10" sideWeight="0.49731544" weight="0.32960895" />
+      <window_info active="true" anchor="right" id="Assistant" visible="true" weight="0.3295302" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" weight="0.3295302" />
@@ -594,8 +510,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/util/GridItem.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/AddItemFragment.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_item.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_close_black_24dp.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/done_tick_menu.xml">
@@ -692,13 +606,6 @@
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="48" column="62" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/util/Country.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -872,10 +779,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/SettingsFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/database/service/CollectionItemService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="139" column="17" selection-start-line="139" selection-start-column="17" selection-end-line="139" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/AddItemActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="108" column="19" selection-start-line="108" selection-start-column="8" selection-end-line="108" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -889,84 +835,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/SettingsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-362">
-          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="136">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml">
+    <entry file="file://$PROJECT_DIR$/../backup/Filatelie3/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="108" column="38" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
-          <folding>
-            <element signature="e#4318#4336#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/database/service/CollectionItemService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        <state relative-caret-position="119">
+          <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
+    <entry file="file://$PROJECT_DIR$/app/build/generated/res/google-services/debug/values/values.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        <state relative-caret-position="34">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/AddItemActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-333">
-          <caret line="108" column="19" selection-start-line="108" selection-start-column="8" selection-end-line="108" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5861#5892#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="241">
+          <caret line="47" column="71" selection-start-line="47" selection-start-column="71" selection-end-line="47" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/partenie/alex/filatelie/ProfileFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="252" lean-forward="true" selection-start-line="252" selection-end-line="252" />
+        <state relative-caret-position="178">
+          <caret line="54" column="32" lean-forward="true" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2713#2737#0" expanded="true" />
-            <element signature="e#2768#2792#0" expanded="true" />
-            <element signature="e#2825#2849#0" expanded="true" />
-            <element signature="e#3123#3147#0" expanded="true" />
-            <element signature="e#3181#3205#0" expanded="true" />
-            <element signature="e#3236#3260#0" expanded="true" />
-            <element signature="e#7464#7496#0" expanded="true" />
+            <element signature="e#3701#3742#0" expanded="true" />
+            <element signature="e#4875#4903#0" expanded="true" />
+            <element signature="e#4905#4937#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
+            <element signature="e#6265#6266#0" expanded="true" />
+            <element signature="e#7480#7508#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
         </state>
       </provider>
     </entry>

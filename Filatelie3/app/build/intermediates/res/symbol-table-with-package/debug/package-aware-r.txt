@@ -1607,7 +1607,13 @@ string default_web_client_id
 string delete_button_string
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string firebase_database_url
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
 string google_profile_picture
+string google_storage_bucket
 string help
 string hide_bottom_view_on_scroll_behavior
 string invalid_password
@@ -1629,6 +1635,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string profile
 string profile_picture
+string project_id
 string prompt_email
 string prompt_password
 string rationale_ask
@@ -1641,7 +1648,6 @@ string status_bar_notification_info_overflow
 string taken_photo
 string title_activity_login
 string title_settings_dialog
-string token
 string version
 string welcome
 string zero

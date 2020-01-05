@@ -88,7 +88,7 @@ public class ProfileFragment extends Fragment {
         profileName = view.findViewById(R.id.profile_name);
         googleSignInButton = view.findViewById(R.id.sign_in_button);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.token))
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         googleSignInClient = GoogleSignIn.getClient(view.getContext(), gso);
@@ -182,7 +182,7 @@ public class ProfileFragment extends Fragment {
         new DownloadImage().execute(googleSignInAccount.getPhotoUrl().toString());
         SharedPreferences.Editor editor = MainActivity.sharedpreferences.edit();
         editor.putBoolean(getString(R.string.LOGIN_KEY), true);
-        editor.putString(getString(R.string.NAME_DEFAULT), googleSignInAccount.getDisplayName());
+        editor.putString(getString(R.string.NAME_KEY), googleSignInAccount.getDisplayName());
         editor.commit();
 
     }

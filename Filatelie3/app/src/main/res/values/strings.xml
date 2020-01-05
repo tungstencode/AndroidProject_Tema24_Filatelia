@@ -40,14 +40,12 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="default_web_client_id">1</string>
     <string name="about_name">Aplicatie in sprijinul filantelistilor DAM Project</string>
     <string name="creator_name">Partenie Alex\nGrupa 1081, Seria D</string>
     <string name="version">Version 1.0</string>
     <string name="items_per_collumn">Items per collumn</string>
     <string name="seekbar_number">2</string>
     <string name="number_of_stramps">Number of items collected</string>
-    <string name="token">603668152714-4nag6u7c9oj5dlbirj8fa5r8oo9ec2f7.apps.googleusercontent.com</string>
     <string name="zero">0</string>
     <string name="profile_picture">my_image.jpeg</string>
     <string name="LOGIN_KEY">loggedin</string>
